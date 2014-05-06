@@ -14,6 +14,13 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.app_directories.Loader',
+)
 
 # Application definition
 
