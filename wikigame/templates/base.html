@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    {% block forejs %}{% endblock %}
+</head>
+<body>
+
+{% include "base/top_header.html" %}
+<div class="container">
+    {% block header %}{% endblock %}
+    {% block content %}{% endblock %}
+</div>
+{% include "base/footer.html" %}
+</body>
+</html>

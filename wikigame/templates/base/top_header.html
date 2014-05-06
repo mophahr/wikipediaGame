@@ -1,0 +1,9 @@
+{% load i18n %}
+<div class="navbar">
+    <div class="navbar-inner">
+        <ul class="nav">
+            <li {% if not main_navigation_tab %}class="active"{% endif %}><a href="{% url "home" %}">{% trans "Home" %}</a></li>
+            <li class="divider-vertical"></li>
+        </ul>
+    </div>
+</div>
