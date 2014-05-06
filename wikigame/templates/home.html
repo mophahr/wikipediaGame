@@ -1,4 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1 class="text-center">Hello World</h1>
+    <h1 class="text-center">Wikipedia game</h1>
+    <p>
+        Your objective is to go from article A to article B (of wikipedia)
+        using the least amount of clicks.
+    </p>
+    <p>
+        Select the challenge:
+    </p>
+    <ul>
+        <li>
+            <a href="{% url "article" "Albert Einstein" %}">Albert Einstein to Michael Jackson</a>
+        </li>
+    </ul>
 {% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="text-center">You are in "{{ article }}"</h1>
+    <p>
+        Your objective is to go to article B.
+        From here you can go to the following links:
+    </p>
+    <ul>
+        {% for link in links %}
+            <li>
+                <a href="{% url "article" link %}">{{ link }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
