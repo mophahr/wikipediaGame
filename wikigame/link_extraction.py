@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 import urllib.request
 import urllib.parse
 import json
+import sys
 
 
 def get_links(start_page, wikipedia_language='en'):
@@ -29,11 +31,12 @@ def get_links(start_page, wikipedia_language='en'):
         jsonData = request.read().decode(encoding)
         data = json.loads(jsonData)
 
-        print(data['query']['pages'].keys())
-
         pageId = list(data['query']['pages'])[0]
-        linkList = data['query']['pages'][str(pageId)]['links']
-        return [entry["title"] for entry in linkList], data
+        if int(pageId)==-1:
+            sys.exit("Page doesn't exist.")
+
+        link_list = data['query']['pages'][str(pageId)]['links']
+        return [entry["title"] for entry in link_list], data
 
     all_links, data = get_more_links()
 
@@ -48,5 +51,6 @@ if __name__ == '__main__':
     #lots of links:
     #startPage = "Albert Einstein"
     #fewer links:
-    startPage = "Bruckhäusl (Erlbach)"
+    startPage = "Erlbach"
+
     print(get_links(startPage))
