@@ -40,6 +40,30 @@ def get_links(start_page, wikipedia_language='de'):
             sys.exit("Page doesn't exist.")
 
         link_list = data['query']['pages'][str(pageId)]['links']
+
+        # get Categories of all the linked pages:
+        '''
+        #Needs to be done 50 titles at a time
+        link_list_query_string="|".join([urllib.parse.quote(entry["title"].encode("utf8")) for entry in link_list])
+        parameters = {"format": "json",
+                      "action": "query",
+                      "prop": "categories",
+                      "titles": link_list_query_string}
+        
+        queryString = "&".join("%s=%s" % (k, v) for k, v in parameters.items())
+        print(queryString)
+
+        url = "http://%s.wikipedia.org/w/api.php?%s" % (wikipedia_language, queryString)
+
+        #get json data and make a dictionary out of it:
+        request = urllib.request.urlopen(url)
+        encoding = request.headers.get_content_charset()
+        jsonData = request.read().decode(encoding)
+        category_data = json.loads(jsonData)
+        
+        print(category_data)
+        '''
+
         return [entry["title"] for entry in link_list], data
 
     all_links, data = get_more_links()
