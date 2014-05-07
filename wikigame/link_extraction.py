@@ -5,7 +5,7 @@ import json
 import sys
 
 
-def get_links(start_page, wikipedia_language='en'):
+def get_links(start_page, wikipedia_language='de'):
     print('get_links(%s)' % start_page)
     # parameters for building a string later:
     # pllimit limits the number of links to return (max is 500 | 5000 for bots see http://en.wikipedia.org/w/api.php )
@@ -22,6 +22,10 @@ def get_links(start_page, wikipedia_language='en'):
         parameters.update(more_parameters)
 
         queryString = "&".join("%s=%s" % (k, v) for k, v in parameters.items())
+
+        # This ensures that redirects are followed automatically, documented here:
+        # http://www.mediawiki.org/wiki/API:Query#Resolving_redirects
+        queryString = queryString+"&redirects"
 
         url = "http://%s.wikipedia.org/w/api.php?%s" % (wikipedia_language, queryString)
 
@@ -48,9 +52,18 @@ def get_links(start_page, wikipedia_language='en'):
     return all_links
 
 if __name__ == '__main__':
-    #lots of links:
-    #startPage = "Albert Einstein"
-    #fewer links:
+    #Some tests follow here:
+    #1. Page with lots of links:
+    startPage = "Albert Einstein"
+    print(get_links(startPage))
+    #2. page with fewer links:
     startPage = "Erlbach"
-
+    print(get_links(startPage))
+    #3. page redirect:
+    startPage = "Vektorprodukt"
+    print(get_links(startPage))
+    startPage = "Kreuzprodukt"
+    print(get_links(startPage))
+    #4. page with no links:
+    startPage = "Bruckhäusl (Erlbach)"
     print(get_links(startPage))
