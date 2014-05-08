@@ -36,35 +36,60 @@ def get_links(start_page, wikipedia_language='de'):
         data = json.loads(jsonData)
 
         pageId = list(data['query']['pages'])[0]
-        if int(pageId)==-1:
+        if int(pageId)<=0:
             sys.exit("Page doesn't exist.")
 
         link_list = data['query']['pages'][str(pageId)]['links']
 
-        # get Categories of all the linked pages:
-        '''
-        #Needs to be done 50 titles at a time
-        link_list_query_string="|".join([urllib.parse.quote(entry["title"].encode("utf8")) for entry in link_list])
-        parameters = {"format": "json",
-                      "action": "query",
-                      "prop": "categories",
-                      "titles": link_list_query_string}
-        
-        queryString = "&".join("%s=%s" % (k, v) for k, v in parameters.items())
-        print(queryString)
-
-        url = "http://%s.wikipedia.org/w/api.php?%s" % (wikipedia_language, queryString)
-
-        #get json data and make a dictionary out of it:
-        request = urllib.request.urlopen(url)
-        encoding = request.headers.get_content_charset()
-        jsonData = request.read().decode(encoding)
-        category_data = json.loads(jsonData)
-        
-        print(category_data)
-        '''
-
         return [entry["title"] for entry in link_list], data
+
+    def remove_forbidden_links(link_list, forbidden_categories=[]):
+        # get Categories of all the linked pages:
+        #Needs to be done at most 50 titles at a time
+        number_of_links = len(link_list)
+        print('remove_forbidden_links for %d links' % number_of_links)
+        links_per_request = 50
+        number_of_requests = int(number_of_links//links_per_request) + 1
+            
+        entries_to_delete=[]
+
+        for request_counter in range(number_of_requests):
+            lower_index = request_counter*links_per_request
+            upper_index = min([number_of_links, (request_counter+1)*links_per_request])
+            local_link_list = link_list[lower_index:upper_index]
+        
+            link_list_query_string = "|".join([urllib.parse.quote(entry.encode("utf8")) for entry in local_link_list])
+            parameters = {"format": "json",
+                          "action": "query",
+                          "prop": "categories",
+                          "titles": link_list_query_string}
+        
+            queryString = "&".join("%s=%s" % (k, v) for k, v in parameters.items())
+
+            url = "http://%s.wikipedia.org/w/api.php?%s" % (wikipedia_language, queryString)
+
+            #get json data and make a dictionary out of it:
+            request = urllib.request.urlopen(url)
+            encoding = request.headers.get_content_charset()
+            jsonData = request.read().decode(encoding)
+            category_data = json.loads(jsonData)
+        
+            linked_pageIds = [key for key in category_data['query']['pages'].keys()]
+
+            for link_index, pageId in enumerate(linked_pageIds):
+                if int(pageId)<=0:
+                    #remove links to nonexisting pages:
+                    entries_to_delete.append(link_index)
+                elif 'categories' in category_data['query']['pages'][pageId].keys():
+                    #remove links to forbidden categories:
+                    link_categories = [entry['title'] for entry in category_data['query']['pages'][pageId]['categories']]
+                    print(link_categories)
+                    if bool(set(link_categories)&set(forbidden_categories)):
+                        entries_to_delete.append(link_index)
+                        print('forbidden!')
+            
+        print('removing %d links' % len(entries_to_delete))
+        return [entry for index, entry in enumerate(link_list) if index not in entries_to_delete]
 
     all_links, data = get_more_links()
 
@@ -73,21 +98,33 @@ def get_links(start_page, wikipedia_language='de'):
         links, data = get_more_links({"plcontinue": data["query-continue"]["links"]["plcontinue"]})
         all_links += links
 
+    # Ideally this should be defined externally and not hardcoded:
+    forbidden_categories=['Kategorie:Mitgliedstaat der Vereinten Nationen',
+                          'Kategorie:Bundesland (Deutschland)',
+                          'Kategorie:Tag',
+                          'Kategorie:Jahr']
+    all_links = remove_forbidden_links(all_links,forbidden_categories)
+
     return all_links
 
 if __name__ == '__main__':
     #Some tests follow here:
     #1. Page with lots of links:
     startPage = "Albert Einstein"
-    print(get_links(startPage))
+    get_links(startPage)
+    #print(get_links(startPage))
     #2. page with fewer links:
     startPage = "Erlbach"
-    print(get_links(startPage))
+    get_links(startPage)
+    #print(get_links(startPage))
     #3. page redirect:
-    startPage = "Vektorprodukt"
-    print(get_links(startPage))
-    startPage = "Kreuzprodukt"
-    print(get_links(startPage))
+    #startPage = "Vektorprodukt"
+    #print(get_links(startPage))
+    #startPage = "Kreuzprodukt"
+    #print(get_links(startPage))
     #4. page with no links:
-    startPage = "Bruckhäusl (Erlbach)"
-    print(get_links(startPage))
+    #startPage = "Bruckhäusl (Erlbach)"
+    #print(get_links(startPage))
+    #5. page with forbidden categories:
+    startPage = "Europa"
+    get_links(startPage)
