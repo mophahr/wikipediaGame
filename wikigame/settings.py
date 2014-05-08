@@ -37,6 +37,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
 ROOT_URLCONF = 'wikigame.urls'
 
 WSGI_APPLICATION = 'wikigame.wsgi.application'
