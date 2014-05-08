@@ -5,4 +5,5 @@ urlpatterns = patterns('',
     url(r'^$', 'wikigame.views.home', name='home'),
     url(r'^%s$' % _('about'), 'wikigame.views.about', name='about'),
     url(r'^%s/(.*)$' % _('article'), 'wikigame.views.article', name='article'),
+    url(r'^%s/(.*)$' % _('start'), 'wikigame.views.start_page', name='start_page'),
 )
