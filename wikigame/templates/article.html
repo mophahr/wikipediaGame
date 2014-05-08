@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
     <h1 class="text-center">You are in "{{ article }}"</h1>
+    {% if path %}
     <p>
-        Your objective is to go to article B.
-        From here you can go to the following links:
+        Your path so far:
+    </p>
+    {% endif %}
+    <p class="text-center">
+        {% for article in path %}
+            {{ forloop.counter }}. {{ article }}{% if not forloop.last %}&#x21e8;{% endif %}
+        {% endfor %}
+    </p>
+    <h3 class="text-center">Path Length: {{ path|length }}</h3>
+    <p>
+        Links to other articles:
     </p>
     <ul>
         {% for link in links %}
