@@ -8,6 +8,10 @@ We install Django
 
      pip install django
 
+and then initialise the database: In the directory (wikipediaGame) run
+     
+     python manage.py syncdb
+
 and that's it.
 
 Running the server
