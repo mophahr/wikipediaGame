@@ -5,7 +5,7 @@ import json
 import sys
 
 
-def get_links(start_page, wikipedia_language='de'):
+def get_links(start_page, wikipedia_language='de', allowed_categories_file_prefix='allowed_categories'):
     print('get_links(%s)' % start_page)
     # parameters for building a string later:
     # pllimit limits the number of links to return (max is 500 | 5000 for bots see http://en.wikipedia.org/w/api.php )
@@ -43,14 +43,14 @@ def get_links(start_page, wikipedia_language='de'):
 
         return [entry["title"] for entry in link_list], data
 
-    def remove_forbidden_links(link_list, forbidden_categories=[]):
+    def remove_forbidden_links(link_list, forbidden_categories=[],allowed_categories=[]):
         # get Categories of all the linked pages:
         #Needs to be done at most 50 titles at a time
         number_of_links = len(link_list)
         print('remove_forbidden_links for %d links' % number_of_links)
         links_per_request = 50
         number_of_requests = int(number_of_links//links_per_request) + 1
-            
+
         entries_to_delete=[]
 
         for request_counter in range(number_of_requests):
@@ -87,6 +87,9 @@ def get_links(start_page, wikipedia_language='de'):
                     if bool(set(link_categories)&set(forbidden_categories)):
                         entries_to_delete.append(link_index)
                         print('forbidden!')
+                    if not bool(set(link_categories)&set(allowed_categories)):
+                        entries_to_delete.append(link_index)
+                        print('not allowed')
             
         print('removing %d links' % len(entries_to_delete))
         return [entry for index, entry in enumerate(link_list) if index not in entries_to_delete]
@@ -103,7 +106,11 @@ def get_links(start_page, wikipedia_language='de'):
                           'Kategorie:Bundesland (Deutschland)',
                           'Kategorie:Tag',
                           'Kategorie:Jahr']
-    all_links = remove_forbidden_links(all_links,forbidden_categories)
+    allowed_categories_file=allowed_categories_file_prefix+'--'+wikipedia_language+'.json'
+    allowed_categories_json=open(allowed_categories_file).read()
+    allowed_categories=json.loads(allowed_categories_json)
+
+    all_links = remove_forbidden_links(all_links,forbidden_categories,allowed_categories)
 
     return all_links
 
