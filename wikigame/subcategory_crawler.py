@@ -1,4 +1,12 @@
 # -*- coding: utf-8 -*-
+'''
+Creates a list of all subcategories of a given category and saves it as a json-dump.
+
+DO NOT USE THIS INTERACTIVELY!
+
+It's very slow.
+The wikipedia category structure is not a tree but can have loops which makes expensive checks necessary.
+'''
 import urllib.request
 import urllib.parse
 import json
@@ -55,9 +63,16 @@ def get_subcategories(start_category, wikipedia_language='de'):
 
     return subcategories
 
+def save_subcategories( subcategories_to_be_saved, file_prefix='allowed_categories' , wikipedia_language='de'):
+    file_name = file_prefix+'--'+wikipedia_language+'.json'
+    with open(file_name, 'w') as out_file:
+       json.dump(subcategories_to_be_saved,out_file)
+
 if __name__ == '__main__':
    #get_subcategories("Category:People",wikipedia_language="en") 
    #print(get_subcategories("Kategorie:Person",wikipedia_language="de"))
    #print(get_subcategories("Kategorie:Physik",wikipedia_language="de"))
-   print(get_subcategories("Kategorie:Biophysik",wikipedia_language="de"))
+   #cats=get_subcategories("Kategorie:Biophysik",wikipedia_language="de")
+   cats=get_subcategories("Kategorie:Person",wikipedia_language="de")
+   save_subcategories(cats) 
    #get_subcategories("Kategorie:Nationale_Personifikation",wikipedia_language="de") 
