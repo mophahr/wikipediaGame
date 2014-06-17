@@ -13,7 +13,7 @@ import json
 import sys
 
 
-def get_subcategories(start_category, wikipedia_language='de'):
+def get_subcategories(start_category, wikipedia_language='de',maximum_depth=3):
     print('get_subcategories(%s)' % start_category)
     # parameters for building a string later:
     # cmlimit limits the number of categories to return (max is 500 | 5000 for bots see http://en.wikipedia.org/w/api.php )
@@ -50,16 +50,21 @@ def get_subcategories(start_category, wikipedia_language='de'):
         else:
             category_list = [entry['title'] for entry in data['query']['categorymembers']]
             return [entry for entry in category_list if entry not in subcategories]
-
+    
+    current_depth=1
     new_subcategories=get_more_subcategories({"cmtitle": urllib.parse.quote(start_category.encode("utf8"))})
     subcategories=subcategories+new_subcategories
 
     while len(new_subcategories)>0:
+        current_depth+=1
         subcategories_to_be_checked=list(new_subcategories)
         new_subcategories=[]
-        for subcategory in subcategories_to_be_checked:
-            new_subcategories=new_subcategories+get_more_subcategories({"cmtitle": urllib.parse.quote(subcategory.encode("utf8"))})
-            subcategories=subcategories+new_subcategories
+        print( "current depth is "+str(current_depth) )
+        print( subcategories_to_be_checked )
+        if current_depth<=maximum_depth:
+            for subcategory in subcategories_to_be_checked:
+                new_subcategories=new_subcategories+get_more_subcategories({"cmtitle": urllib.parse.quote(subcategory.encode("utf8"))})
+                subcategories=subcategories+new_subcategories
 
     return subcategories
 
