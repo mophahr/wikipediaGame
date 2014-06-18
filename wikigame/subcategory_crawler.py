@@ -74,10 +74,12 @@ def save_subcategories( subcategories_to_be_saved, file_prefix='allowed_categori
        json.dump(subcategories_to_be_saved,out_file)
 
 if __name__ == '__main__':
-   #get_subcategories("Category:People",wikipedia_language="en") 
+   #cats=get_subcategories("Kategorie:Person",wikipedia_language="de")
+   #save_subcategories(cats) 
+   encats=get_subcategories("Category:People",wikipedia_language="en") 
+   save_subcategories(encats,wikipedia_language="en") 
+
+   #get_subcategories("Kategorie:Nationale_Personifikation",wikipedia_language="de") 
    #print(get_subcategories("Kategorie:Person",wikipedia_language="de"))
    #print(get_subcategories("Kategorie:Physik",wikipedia_language="de"))
    #cats=get_subcategories("Kategorie:Biophysik",wikipedia_language="de")
-   cats=get_subcategories("Kategorie:Person",wikipedia_language="de")
-   save_subcategories(cats) 
-   #get_subcategories("Kategorie:Nationale_Personifikation",wikipedia_language="de") 
