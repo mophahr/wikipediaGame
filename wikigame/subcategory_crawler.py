@@ -74,8 +74,8 @@ def save_subcategories( subcategories_to_be_saved, file_prefix='allowed_categori
        json.dump(subcategories_to_be_saved,out_file)
 
 if __name__ == '__main__':
-   #cats=get_subcategories("Kategorie:Person",wikipedia_language="de")
-   #save_subcategories(cats) 
+   cats=get_subcategories("Kategorie:Person",wikipedia_language="de")
+   save_subcategories(cats) 
    encats=get_subcategories("Category:People",wikipedia_language="en") 
    save_subcategories(encats,wikipedia_language="en") 
 

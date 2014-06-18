@@ -94,13 +94,7 @@ def get_links(start_page, wikipedia_language='de', allowed_categories_file_prefi
                 elif 'categories' in category_data['query']['pages'][pageId].keys():
                     #only keep links to allowed categories:
                     link_categories = [entry['title'] for entry in category_data['query']['pages'][pageId]['categories']]
-                    if bool(set(link_categories)&set(forbidden_categories)):
-                        print(str(link_list_index)+' '+category_data['query']['pages'][pageId]['title'])
-                        print('==> in forbidden list')
-                    elif not bool(set(link_categories)&set(allowed_categories)):
-                        print(str(link_list_index)+' '+category_data['query']['pages'][pageId]['title'])
-                        print('==> not in allowed list')
-                    else:
+                    if bool(set(link_categories)&set(allowed_categories)):
                         print(set(link_categories)&set(allowed_categories))
                         print(str(link_list_index)+' '+category_data['query']['pages'][pageId]['title'])
                         print('==> allowed')
