@@ -5,7 +5,7 @@ import json
 import sys
 
 
-def get_links(start_page, wikipedia_language='de', allowed_categories_file_prefix='allowed_categories',max_recheck_level=5):
+def get_links(start_page, wikipedia_language='de', allowed_categories_file_prefix='allowed_categories',max_recheck_level=4):
     print('get_links(%s)' % start_page)
     # parameters for building a string later:
     # pllimit limits the number of links to return (max is 500 | 5000 for bots see http://en.wikipedia.org/w/api.php )
@@ -43,11 +43,12 @@ def get_links(start_page, wikipedia_language='de', allowed_categories_file_prefi
 
         return [entry["title"] for entry in link_list], data
 
-    def remove_forbidden_links(link_list, forbidden_categories=[],allowed_categories=[],recheck_level=0):
+    def remove_forbidden_links(link_list, forbidden_categories=[],allowed_categories=set([]),recheck_level=0):
         # get Categories of all the linked pages:
         #Needs to be done at most 50 titles at a time
+        link_list=sorted(list(set(link_list)))
         number_of_links = len(link_list)
-        print('remove_forbidden_links for %d links' % number_of_links)
+        print('\n\nremove_forbidden_links for %d links' % number_of_links)
         links_per_request = 50
         number_of_requests = int(number_of_links//links_per_request) + 1
         print('will take %d requests' % number_of_requests)
@@ -60,6 +61,7 @@ def get_links(start_page, wikipedia_language='de', allowed_categories_file_prefi
             lower_index = request_counter*links_per_request
             upper_index = min([number_of_links, (request_counter+1)*links_per_request])
             local_link_list = link_list[lower_index:upper_index]
+            print("checking %d links" % len(local_link_list) )
         
             link_list_query_string = "|".join([urllib.parse.quote(entry.encode("utf8")) for entry in local_link_list])
             #print( link_list_query_string.encode("utf8") )
@@ -83,19 +85,16 @@ def get_links(start_page, wikipedia_language='de', allowed_categories_file_prefi
             #print(category_data['query']['pages'])
         
             linked_pageIds = [key for key in category_data['query']['pages'].keys()]
+            print("recieved information about %d links" % len(linked_pageIds) )
             #print(linked_pageIds)
 
             for link_index, pageId in enumerate(linked_pageIds):
-                #print( category_data['query']['pages'][pageId].keys() )
                 link_list_index=request_counter*links_per_request+link_index
-                if int(pageId)<=0:
-                    #links to nonexisting pages:
-                    print("nonexisting")
-                elif 'categories' in category_data['query']['pages'][pageId].keys():
+                if 'categories' in category_data['query']['pages'][pageId].keys():
                     #only keep links to allowed categories:
                     link_categories = [entry['title'] for entry in category_data['query']['pages'][pageId]['categories']]
-                    if bool(set(link_categories)&set(allowed_categories)):
-                        print(set(link_categories)&set(allowed_categories))
+                    if bool(set(link_categories)&allowed_categories):
+                        print(set(link_categories)&allowed_categories)
                         print(str(link_list_index)+' '+category_data['query']['pages'][pageId]['title'])
                         print('==> allowed')
                         allowed_titles.append(category_data['query']['pages'][pageId]['title'])
@@ -109,8 +108,7 @@ def get_links(start_page, wikipedia_language='de', allowed_categories_file_prefi
         print("leaving %d links to be displayed" % len(allowed_titles))
         
         if len(titles_to_check_again)>0:
-            print('re-checking')
-            print(titles_to_check_again)
+            print('re-checking %s links' % len(titles_to_check_again))
             if recheck_level<=max_recheck_level:
                 allowed_titles+=remove_forbidden_links(titles_to_check_again,recheck_level=recheck_level+1)
 
@@ -132,20 +130,21 @@ def get_links(start_page, wikipedia_language='de', allowed_categories_file_prefi
     allowed_categories_file="./wikigame/"+allowed_categories_file_prefix+'--'+wikipedia_language+'.json'
     allowed_categories_json=open(allowed_categories_file).read()
     allowed_categories=json.loads(allowed_categories_json)
+    allowed_categories=set(allowed_categories)
 
     all_links = remove_forbidden_links(all_links,forbidden_categories,allowed_categories)
 
-    return all_links
+    return sorted(list(set(all_links)))
 
 if __name__ == '__main__':
     #Some tests follow here:
     #1. Page with lots of links:
-    startPage = "Albert Einstein"
-    get_links(startPage, wikipedia_language="en")
+    #startPage = "Albert Einstein"
+    #get_links(startPage, wikipedia_language="en")
     #print(get_links(startPage))
     #2. page with fewer links:
-    startPage = "Erlbach"
-    get_links(startPage)
+    #startPage = "Erlbach"
+    #get_links(startPage)
     #print(get_links(startPage))
     #3. page redirect:
     #startPage = "Vektorprodukt"
@@ -156,5 +155,5 @@ if __name__ == '__main__':
     #startPage = "Bruckhäusl (Erlbach)"
     #print(get_links(startPage))
     #5. page with forbidden categories:
-    startPage = "Europa"
-    get_links(startPage)
+    #startPage = "Europa"
+    #get_links(startPage)

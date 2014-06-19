@@ -13,7 +13,7 @@ import json
 import sys
 
 
-def get_subcategories(start_category, wikipedia_language='de',maximum_depth=3):
+def get_subcategories(start_category, wikipedia_language='de',maximum_depth=4):
     print('get_subcategories(%s)' % start_category)
     # parameters for building a string later:
     # cmlimit limits the number of categories to return (max is 500 | 5000 for bots see http://en.wikipedia.org/w/api.php )
@@ -74,9 +74,11 @@ def save_subcategories( subcategories_to_be_saved, file_prefix='allowed_categori
        json.dump(subcategories_to_be_saved,out_file)
 
 if __name__ == '__main__':
-   cats=get_subcategories("Kategorie:Person",wikipedia_language="de")
+   #cats=get_subcategories("Kategorie:Person",wikipedia_language="de")
+   cats=get_subcategories("Kategorie:Person nach Jahrhundert",wikipedia_language="de",maximum_depth=3)
    save_subcategories(cats) 
-   encats=get_subcategories("Category:People",wikipedia_language="en") 
+   #encats=get_subcategories("Category:People",wikipedia_language="en") 
+   encats=get_subcategories("Category:People by time",wikipedia_language="en") 
    save_subcategories(encats,wikipedia_language="en") 
 
    #get_subcategories("Kategorie:Nationale_Personifikation",wikipedia_language="de") 
