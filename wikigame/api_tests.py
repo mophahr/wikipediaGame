@@ -2,7 +2,10 @@
 import urllib.request
 import urllib.parse
 import json
+import time
 
+
+start = time.time()
 
 def link_request(more_parameters={"continue": ""}):
    parameters = {"format": "json",
@@ -51,11 +54,21 @@ def get_link_data():
             val= "|".join([urllib.parse.quote(e) for e in data['continue'][key].split('|')])
             continue_dict.update({key: val})
       data=link_request(continue_dict)
-      query_result.update(data['query']['pages'])
+      
+      known_pages=set(query_result.keys())
+      recieved_pages=set(data['query']['pages'].keys())
 
-   print(json.dumps(query_result, indent=4))
+      for pageId in known_pages&recieved_pages:
+         query_result[pageId].update(data['query']['pages'][pageId])
+
+      for pageId in recieved_pages-known_pages:
+         query_result.update({pageId: data['query']['pages'][pageId]})
+
+   #print(json.dumps(query_result, indent=4))
 
 start_page="Albert Einstein"
-wikipedia_language="en"
+wikipedia_language="de"
 get_link_data()
+end = time.time()
+print("time used: "+str(end-start)+"s")
 
