@@ -1,16 +1,25 @@
 {% load staticfiles %}
+{% load i18n %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+    <title>{% block title %}{% trans "Wikipedia game"%}{% endblock %}</title>
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
+    {# bootstrap #}
     <link href="//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    {# d3.js #}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.8/d3.min.js" type="text/javascript" ></script>
+
+    {# nv.d3.js #}
+    <link href="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css" rel="stylesheet" type="text/css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js"></script>
+
     {% block forejs %}{% endblock %}
 </head>
 <body>
-
 {% include "base/top_header.html" %}
 <div class="container">
     {% block header %}{% endblock %}

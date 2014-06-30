@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load humanize %}
+{% block content %}
+    <h1 class="text-center">{% trans "Congratulations"%}</h1>
+    <h4 class="text-center">
+        {% trans "You've solved the problem!" %}
+    </h4>
+    <p>
+        {% blocktrans with path_lenght=result.path_length starting_article=problem.start ending_article=problem.end %}
+            You took <strong>{{ path_lenght }}</strong> steps
+            to reach from <strong>{{ starting_article }}</strong>
+            to <strong>{{ ending_article }}</strong>.
+        {% endblocktrans %}
+    </p>
+    {% if result.path_length == best %}
+        <div class="alert alert-success" role="alert">
+            <h4 class="text-center">
+                {% trans "You made it as good as the best result so far." %}
+            </h4>
+        </div>
+    {% elif result.path_length < best %}
+        <div class="alert alert-success" role="alert">
+            <h4 class="text-center">
+                {% blocktrans with path_lenght=result.path_length %}Congratulations, you have <strong>set a new record</strong> of {{ path_length }} steps!{% endblocktrans %}
+            </h4>
+        </div>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            <h4 class="text-center">
+                {% url "start_page" problem.id as restart_url %}
+                {% blocktrans with path_lenght=result.path_length %}
+                    You made {{ path_length }} steps. Dare to <a href="{{ restart_url }}">improve your score?</a>
+                    and bet the best record?
+                {% endblocktrans %}
+            </h4>
+        </div>
+    {% endif %}
+    <h4>{% trans "Results so far:" %}</h4>
+    <div class="container">
+        {% include "histogram.html" %}
+    </div>
+    <h4>{% trans "Best results:" %}</h4>
+    <ol style="list-style: none;">
+        {% for previous_result in results %}
+            <li>
+                <strong>{{ previous_result.rank|ordinal }}</strong> {% trans "place"%}:
+                {{ previous_result.path_length }} {% trans "steps" %} ({% trans "at" %} {{ previous_result.time|date:'H:i:s' }})
+                {% if previous_result.id == result.id %}<strong>{% trans "<<------ your result" %}</strong>{% endif %}
+            </li>
+        {% endfor %}
+    </ol>
+{% endblock %}

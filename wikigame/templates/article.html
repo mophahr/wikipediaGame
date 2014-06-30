@@ -1,19 +1,20 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block content %}
-    <h1 class="text-center">You are in "{{ article }}"</h1>
+    <h1 class="text-center">{% blocktrans with article_name=article %}You are in <em>{{ article_name }}</em>{% endblocktrans %}</h1>
     {% if path %}
-    <p>
-        Your path so far:
-    </p>
+        <p class="text-center">
+            {% trans "Your path so far:"%}
+        </p>
+        <p class="text-center">
+            {% for article in path %}
+                {{ forloop.counter }}. {{ article }}{% if not forloop.last %}&#x21e8;{% endif %}
+            {% endfor %}
+        </p>
     {% endif %}
-    <p class="text-center">
-        {% for article in path %}
-            {{ forloop.counter }}. {{ article }}{% if not forloop.last %}&#x21e8;{% endif %}
-        {% endfor %}
-    </p>
-    <h3 class="text-center">Path Length: {{ path|length }}</h3>
+    <h3 class="text-center">{% trans "Path Length" %}: {{ path|length }}</h3>
     <p>
-        Links to other articles:
+        {% trans "Links to other articles" %}:
     </p>
     <ul>
         {% for link in links %}
