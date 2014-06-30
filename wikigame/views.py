@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 
-from wikigame.link_extraction import get_links
+from wikigame import link_extraction
+
+
+def get_links(article_name, language):
+    return link_extraction.filter_links(link_extraction.get_links(article_name, language))
 
 
 def home(request):
