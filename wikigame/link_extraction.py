@@ -57,7 +57,7 @@ def get_links(start_page, wikipedia_language='de'):
 class NameList(object):
     def __init__(self):
         self.names = set()
-        with open('names_usa_1990.tsv', 'r') as file:
+        with open('wikigame/names_usa_1990.tsv', 'r') as file:
             for line in file:
                 name = line.split()[0]
                 self.names.update([name])
@@ -69,21 +69,35 @@ names_list = NameList()
 
 
 def names_condition(link_name):
+    term = link_name
+    term = term.upper()
+
+    # if second letter is upper, most likely an acronym
+    if link_name[1].isupper():
+        return False
+
+    # if last name doesn't start with upper, not a name
+    names = link_name.split()
+    if len(names) == 1 or not names[-1][0].isupper():
+        return False
 
     # ignore if it contains a number
-    if any(char.isdigit() for char in link_name):
+    if any(char.isdigit() for char in term):
         return False
 
     # ignore if it contains common words
-    if any(common in link_name for common in ['OF ', 'THE ', '?', 'AND ']):
+    if any(common in term for common in ['OF ', 'THE ', '?', 'AND ']):
         return False
 
     # only counts if starts by name from database
-    return names_list.is_registered(link_name.split()[0])
+    names = term.split()
+    if len(names) == 1:
+        return False
+    return names_list.is_registered(names[0]) and names_list.is_registered(names[-1])
 
 
 def filter_links(links_names, condition_callback=names_condition):
-    return [link_name for link_name in links_names if condition_callback(link_name.upper())]
+    return [link_name for link_name in links_names if condition_callback(link_name)]
 
 
 if __name__ == '__main__':

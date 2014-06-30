@@ -1,35 +1,27 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block content %}
-    <h1 class="text-center">Wikipedia game</h1>
+    <h1 class="text-center">{% trans "Wikipedia game" %}</h1>
     <p>
-        You start on a given <strong>start article</strong> (e.g. Albert Einstein), and your objetive is to reach a <strong>target article</strong> (e.g. Michael Jackson).
+        {% trans "You start on a given <strong>start article</strong> (e.g. Albert Einstein), and your objetive is to reach a <strong>target article</strong> (e.g. Michael Jackson)."%}
     </p>
     <p>
-        For each article, the game gives you all the links that article contains to other articles.
-        You jump to other articles by <strong>following links</strong>, just like navigating on the internet.
+        {% trans "For each article, the game gives you all the links that article contains to other articles." %}
+        {% trans "You jump to other articles by <strong>following links</strong>, just like navigating on the internet." %}
     </p>
     <p>
-        The game ends when you reach the target article, and your score is them compared against all others players:
+        {% trans "The game ends when you reach the target article, and your score is them compared against all others players:" %}
     </p>
-    <h4 class="text-center">wins the player with the shortest path (least number of clicks)</h4>
+    <h4 class="text-center">{% trans "wins the player with the shortest path (least number of clicks)" %}</h4>
     <p>
-        We selected different challenges from which you can start from:
+        {% trans "We selected different challenges from which you can start from:" %}
     </p>
     <ul>
+        {% for problem in problems %}
         <li>
-            <a href="{% url "start_page" "Albert Einstein" %}">Albert Einstein to Michael Jackson</a>
+            <a href="{% url "start_page" problem.id %}">{{ problem.start }} {% trans "to" %} {{ problem.end }}</a>
+            ({% trans "created at" %} {{ problem.created_at }})
         </li>
+        {% endfor %}
     </ul>
-    <h5>
-        ######### Content of the end of the game, an explanation :P #########
-    </h5>
-        <p>
-        This is a game to understand the idea of a <strong>network</strong>, and how
-        it can be a model of different physical and social systems.
-    </p>
-    <p>
-        In this game, you are to navigate on the network of wikipedia articles. The nodes of the network are
-        articles of the wikipedia and the edges are links between articles.
-    </p>
-    <p>MISSING IMAGE HERE!</p>
 {% endblock %}
