@@ -57,7 +57,7 @@ msgstr "Links zu anderen Artikeln"
 
 #: wikigame/templates/base.html:6 wikigame/templates/home.html:4
 msgid "Wikipedia game"
-msgstr "Wikipedia Spiel"
+msgstr "Wikipedia-Spiel"
 
 #: wikigame/templates/end.html:5
 msgid "Congratulations"
@@ -92,20 +92,20 @@ msgid ""
 "Congratulations, you have <strong>set a new record</strong> of "
 "%(path_length)s steps!"
 msgstr ""
-"Gratulation! Sie heben mit %(path_length)s Schritten einen neuen"
+"Gratulation! Sie haben mit %(path_lengt)s Schritten einen neuen"
 "<strong>Rekord</strong> aufgestellt."
 
 #: wikigame/templates/end.html:32
 #, python-format
 msgid ""
 "\n"
-"                    You made %(path_length)s steps. Dare to <a href="
+"                    You made %(path_lengt)s steps. Dare to <a href="
 "\"%(restart_url)s\">improve your score?</a>\n"
 "                    and bet the best record?\n"
 "                "
 msgstr ""
 "\n"
-"                    Sie haben %(path_length)s Schritte gebraucht."
+"                    Sie haben %(path_lengt)s Schritte gebraucht."
 "                    Denken Sie, Sie können Ihr <a href="
 "\"%(restart_url)s\">Resultat verbessern</a>\n"
 "                    und den bisherigen Rekord einstellen?\n"
@@ -166,7 +166,7 @@ msgid ""
 "For each article, the game gives you all the links that article contains to "
 "other articles."
 msgstr ""
-"In jedem Artikel stellt ihnen das Spiel eine Liste von Links zu allen Artikeln über Personen,"
+"In jedem Artikel stellt ihnen das Spiel eine Liste von Links zu allen Artikeln über Personen, "
 "die in dem Artikel erwähnt werden zur Verfügung."
 
 #: wikigame/templates/home.html:10
