@@ -1,0 +1,184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-01 14:25+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: wikigame/urls.py:6
+msgid "about"
+msgstr ""
+
+#: wikigame/urls.py:7
+msgid "article"
+msgstr ""
+
+#: wikigame/urls.py:8
+msgid "start"
+msgstr ""
+
+#: wikigame/urls.py:9 wikigame/urls.py:11
+msgid "end"
+msgstr ""
+
+#: wikigame/views.py:104
+msgid "histogram of path length"
+msgstr ""
+
+#: wikigame/templates/article.html:4
+#, python-format
+msgid "You are in <em>%(article_name)s</em>"
+msgstr ""
+
+#: wikigame/templates/article.html:7
+msgid "Your path so far:"
+msgstr ""
+
+#: wikigame/templates/article.html:15 wikigame/templates/histogram.html:31
+msgid "Path Length"
+msgstr ""
+
+#: wikigame/templates/article.html:17
+msgid "Links to other articles"
+msgstr ""
+
+#: wikigame/templates/base.html:6 wikigame/templates/home.html:4
+msgid "Wikipedia game"
+msgstr ""
+
+#: wikigame/templates/end.html:5
+msgid "Congratulations"
+msgstr ""
+
+#: wikigame/templates/end.html:7
+msgid "You've solved the problem!"
+msgstr ""
+
+#: wikigame/templates/end.html:10
+#, python-format
+msgid ""
+"\n"
+"            You took <strong>%(path_lenght)s</strong> steps\n"
+"            to reach from <strong>%(starting_article)s</strong>\n"
+"            to <strong>%(ending_article)s</strong>.\n"
+"        "
+msgstr ""
+
+#: wikigame/templates/end.html:19
+msgid "You made it as good as the best result so far."
+msgstr ""
+
+#: wikigame/templates/end.html:25
+#, python-format
+msgid ""
+"Congratulations, you have <strong>set a new record</strong> of "
+"%(path_length)s steps!"
+msgstr ""
+
+#: wikigame/templates/end.html:32
+#, python-format
+msgid ""
+"\n"
+"                    You made %(path_length)s steps. Dare to <a href="
+"\"%(restart_url)s\">improve your score?</a>\n"
+"                    and bet the best record?\n"
+"                "
+msgstr ""
+
+#: wikigame/templates/end.html:39
+msgid "Results so far:"
+msgstr ""
+
+#: wikigame/templates/end.html:43
+msgid "Best results:"
+msgstr ""
+
+#: wikigame/templates/end.html:47
+msgid "place"
+msgstr ""
+
+#: wikigame/templates/end.html:48
+msgid "steps"
+msgstr ""
+
+#: wikigame/templates/end.html:48
+msgid "at"
+msgstr ""
+
+#: wikigame/templates/end.html:49
+msgid "<<------ your result"
+msgstr ""
+
+#: wikigame/templates/histogram.html:26
+msgid "results"
+msgstr ""
+
+#: wikigame/templates/histogram.html:26
+msgid "with"
+msgstr ""
+
+#: wikigame/templates/histogram.html:27
+msgid "length"
+msgstr ""
+
+#: wikigame/templates/histogram.html:34
+msgid "Number of results"
+msgstr ""
+
+#: wikigame/templates/home.html:6
+msgid ""
+"You start on a given <strong>start article</strong> (e.g. Albert Einstein), "
+"and your objetive is to reach a <strong>target article</strong> (e.g. "
+"Michael Jackson)."
+msgstr ""
+
+#: wikigame/templates/home.html:9
+msgid ""
+"For each article, the game gives you all the links that article contains to "
+"other articles."
+msgstr ""
+
+#: wikigame/templates/home.html:10
+msgid ""
+"You jump to other articles by <strong>following links</strong>, just like "
+"navigating on the internet."
+msgstr ""
+
+#: wikigame/templates/home.html:13
+msgid ""
+"The game ends when you reach the target article, and your score is them "
+"compared against all others players:"
+msgstr ""
+
+#: wikigame/templates/home.html:15
+msgid "wins the player with the shortest path (least number of clicks)"
+msgstr ""
+
+#: wikigame/templates/home.html:17
+msgid "We selected different challenges from which you can start from:"
+msgstr ""
+
+#: wikigame/templates/home.html:22
+msgid "to"
+msgstr ""
+
+#: wikigame/templates/home.html:23
+msgid "created at"
+msgstr ""
+
+#: wikigame/templates/base/top_header.html:5
+msgid "Restart"
+msgstr ""

@@ -22,3 +22,21 @@ Go to the directory (wikipediaGame) and run
      python manage.py runserver
 
 Enter in the browser in the url `127.0.0.1:8000`. It should be it.
+
+Translations
+------------
+
+To update translations, run
+
+	python manage.py makemessages -l de
+
+this updates the file located at 
+
+	locale/de/LC_MESSAGES/django.po
+
+which can be modified to translate the website.
+
+
+
+
+
