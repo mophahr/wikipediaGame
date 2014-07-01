@@ -36,9 +36,9 @@ def article(request, article):
     if article != previous_article:
         # ensure the article is valid (this article is accessible from the previous one)
         # this avoids cheating by changing the url (principle that HTML requests are anonymous)
-        #if article not in get_links(previous_article, 'en'):
-        #    # todo: message the user saying the current article is X
-        #    return redirect('article', previous_article)
+        if article not in get_links(previous_article, 'en'):
+            # todo: message the user saying the current article is X
+            return redirect('article', previous_article)
 
         # everything good: add it to the path and force the session to be saved.
         request.session['path'].append(article)
@@ -81,7 +81,7 @@ def end_page(request):
     best = Result.objects.aggregate(min=Min('path_length'))['min']
 
     result = Result.objects.create(problem=problem,
-                                   path_length=len(request.session['path']) + 1)
+                                   path_length=len(request.session['path']))
 
     ## rank the results with equal ranks if they have the same path_length
     results = Result.objects.order_by('path_length', '-time')[:20]
