@@ -199,7 +199,7 @@ msgstr "zu"
 
 #: wikigame/templates/home.html:23
 msgid "created at"
-msgstr ""
+msgstr "erzeugt am"
 
 #: wikigame/templates/base/top_header.html:5
 msgid "Restart"
