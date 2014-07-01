@@ -98,6 +98,10 @@ def end_page(request):
     result = Result.objects.create(problem=problem,
                                    path_length=len(request.session['path']))
 
+    # after the user ends, the game is restarted (so the user cannot use
+    # back and finish again)
+    flush_game_session(request.session)
+
     ## rank the results with equal ranks if they have the same path_length
     results = Result.objects.order_by('path_length', '-time')[:20]
     current = 0
