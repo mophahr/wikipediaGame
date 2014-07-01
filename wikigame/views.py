@@ -14,6 +14,7 @@ def get_links(article_name, language):
 
 
 def home(request):
+    request.session.flush()
     create_problems()
     problems = Problem.objects.all()
 
@@ -75,8 +76,13 @@ def start_page(request, problem_id):
 
 
 def end_page(request):
-
+    if 'problem' not in request.session:
+        return redirect('home')
     problem = Problem.objects.get(id=request.session['problem'])
+
+    # the game only ends when the user reaches the end!
+    if problem.end != request.session['path'][-1]:
+        return redirect('article', request.session['path'][-1])
 
     best = Result.objects.aggregate(min=Min('path_length'))['min']
 
