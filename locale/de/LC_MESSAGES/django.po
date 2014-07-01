@@ -41,19 +41,19 @@ msgstr ""
 #: wikigame/templates/article.html:4
 #, python-format
 msgid "You are in <em>%(article_name)s</em>"
-msgstr ""
+msgstr "Si sind im Artikel <em>%(article_name)s</em>"
 
 #: wikigame/templates/article.html:7
 msgid "Your path so far:"
-msgstr ""
+msgstr "Gisheriger Pfad"
 
 #: wikigame/templates/article.html:15 wikigame/templates/histogram.html:31
 msgid "Path Length"
-msgstr ""
+msgstr "Pfadlänge"
 
 #: wikigame/templates/article.html:17
 msgid "Links to other articles"
-msgstr ""
+msgstr "Links zu anderen Artikeln"
 
 #: wikigame/templates/base.html:6 wikigame/templates/home.html:4
 msgid "Wikipedia game"
@@ -61,11 +61,11 @@ msgstr ""
 
 #: wikigame/templates/end.html:5
 msgid "Congratulations"
-msgstr ""
+msgstr "Gratulation"
 
 #: wikigame/templates/end.html:7
 msgid "You've solved the problem!"
-msgstr ""
+msgstr "Sie haben die Aufgabe gelöst!"
 
 #: wikigame/templates/end.html:10
 #, python-format
@@ -104,7 +104,7 @@ msgstr ""
 
 #: wikigame/templates/end.html:43
 msgid "Best results:"
-msgstr ""
+msgstr "Beste Ergebnisse:"
 
 #: wikigame/templates/end.html:47
 msgid "place"
@@ -120,23 +120,23 @@ msgstr ""
 
 #: wikigame/templates/end.html:49
 msgid "<<------ your result"
-msgstr ""
+msgstr "<<------ Ihr Ergebnis"
 
 #: wikigame/templates/histogram.html:26
 msgid "results"
-msgstr ""
+msgstr "Ergebnisse"
 
 #: wikigame/templates/histogram.html:26
 msgid "with"
-msgstr ""
+msgstr "mit"
 
 #: wikigame/templates/histogram.html:27
 msgid "length"
-msgstr ""
+msgstr "Länge"
 
 #: wikigame/templates/histogram.html:34
 msgid "Number of results"
-msgstr ""
+msgstr "Anzahl an Ergebnissen"
 
 #: wikigame/templates/home.html:6
 msgid ""
@@ -181,4 +181,4 @@ msgstr ""
 
 #: wikigame/templates/base/top_header.html:5
 msgid "Restart"
-msgstr ""
+msgstr "Neustart"
