@@ -9,12 +9,21 @@ from wikigame import link_extraction
 from wikigame.models import Problem, Result, create_problems
 
 
+game_related_session_keys = ['problem', 'path']
+
+
+def flush_game_session(session):
+    for key in game_related_session_keys:
+        if key in session:
+            session.pop(key)
+
+
 def get_links(article_name, language):
     return link_extraction.filter_links(link_extraction.get_links(article_name, language))
 
 
 def home(request):
-    request.session.flush()
+    flush_game_session(request.session)
     create_problems()
     problems = Problem.objects.all()
 
@@ -66,7 +75,7 @@ def start_page(request, problem_id):
 
     article = problem.start
 
-    request.session.flush()
+    flush_game_session(request.session)
     request.session['problem'] = problem.id
     request.session['path'] = [article]
 
