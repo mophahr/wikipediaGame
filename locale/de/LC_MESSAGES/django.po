@@ -36,16 +36,16 @@ msgstr ""
 
 #: wikigame/views.py:104
 msgid "histogram of path length"
-msgstr ""
+msgstr "Histogramm der Pfadlängen"
 
 #: wikigame/templates/article.html:4
 #, python-format
 msgid "You are in <em>%(article_name)s</em>"
-msgstr "Si sind im Artikel <em>%(article_name)s</em>"
+msgstr "Sie sind im Artikel <em>%(article_name)s</em>"
 
 #: wikigame/templates/article.html:7
 msgid "Your path so far:"
-msgstr "Gisheriger Pfad"
+msgstr "Bisheriger Pfad"
 
 #: wikigame/templates/article.html:15 wikigame/templates/histogram.html:31
 msgid "Path Length"
@@ -57,7 +57,7 @@ msgstr "Links zu anderen Artikeln"
 
 #: wikigame/templates/base.html:6 wikigame/templates/home.html:4
 msgid "Wikipedia game"
-msgstr ""
+msgstr "Wikipedia Spiel"
 
 #: wikigame/templates/end.html:5
 msgid "Congratulations"
@@ -76,6 +76,11 @@ msgid ""
 "            to <strong>%(ending_article)s</strong>.\n"
 "        "
 msgstr ""
+"\n"
+"            Sie haben <strong>%(path_lenght)s</strong> Schritte gebraucht,\n"
+"            um von <strong>%(starting_article)s</strong>\n"
+"            zu <strong>%(ending_article)s</strong> zu gelangen.\n"
+"        "
 
 #: wikigame/templates/end.html:19
 msgid "You made it as good as the best result so far."
@@ -87,6 +92,8 @@ msgid ""
 "Congratulations, you have <strong>set a new record</strong> of "
 "%(path_length)s steps!"
 msgstr ""
+"Gratulation! Sie heben mit %(path_length)s Schritten einen neuen"
+"<strong>Rekord</strong> aufgestellt."
 
 #: wikigame/templates/end.html:32
 #, python-format
@@ -97,10 +104,16 @@ msgid ""
 "                    and bet the best record?\n"
 "                "
 msgstr ""
+"\n"
+"                    Sie haben %(path_length)s Schritte gebraucht."
+"                    Denken Sie, Sie können Ihr <a href="
+"\"%(restart_url)s\">Resultat verbessern</a>\n"
+"                    und den bisherigen Rekord einstellen?\n"
+"                "
 
 #: wikigame/templates/end.html:39
 msgid "Results so far:"
-msgstr ""
+msgstr "Bisherige Ergebnisse"
 
 #: wikigame/templates/end.html:43
 msgid "Best results:"
@@ -108,11 +121,11 @@ msgstr "Beste Ergebnisse:"
 
 #: wikigame/templates/end.html:47
 msgid "place"
-msgstr ""
+msgstr "Rang"
 
 #: wikigame/templates/end.html:48
 msgid "steps"
-msgstr ""
+msgstr "Schritte"
 
 #: wikigame/templates/end.html:48
 msgid "at"
@@ -144,36 +157,45 @@ msgid ""
 "and your objetive is to reach a <strong>target article</strong> (e.g. "
 "Michael Jackson)."
 msgstr ""
+"Sie beginnen mit einem gegebenen <strong>Start-Artikel</strong> (z.B. Alber Einstein)"
+"und sollen vesuchen, in möglichst wenig Schritten, d.h. Klicks auf Links auf Personen aus dem jeweiligen Artikel,"
+"einen <strong>Ziel-Artikel</strong> (z.B. Michael Jackson) zu erreichen."
 
 #: wikigame/templates/home.html:9
 msgid ""
 "For each article, the game gives you all the links that article contains to "
 "other articles."
 msgstr ""
+"In jedem Artikel stellt ihnen das Spiel eine Liste von Links zu allen Artikeln über Personen,"
+"die in dem Artikel erwähnt werden zur Verfügung."
 
 #: wikigame/templates/home.html:10
 msgid ""
 "You jump to other articles by <strong>following links</strong>, just like "
 "navigating on the internet."
 msgstr ""
+"Sie können zu anderen Artikeln gelangen, indem sie den Angezeigten Links folgen;"
+"Genauso, wie wenn Sie im Internet navigierten."
 
 #: wikigame/templates/home.html:13
 msgid ""
 "The game ends when you reach the target article, and your score is them "
 "compared against all others players:"
 msgstr ""
+"Das Spiel endet, wenn sie den Ziel-Artikel erreichen. Die Länge des von Ihnen gewählten Pfades"
+"Wird dann mit den Ergebnissen bisheriger Spieler verglichen."
 
 #: wikigame/templates/home.html:15
 msgid "wins the player with the shortest path (least number of clicks)"
-msgstr ""
+msgstr "Der Spieler mit dem kürzesten Pfad gewinnt."
 
 #: wikigame/templates/home.html:17
 msgid "We selected different challenges from which you can start from:"
-msgstr ""
+msgstr "Sie können jetzt eine der folgenden Aufgaben auswählen:"
 
 #: wikigame/templates/home.html:22
 msgid "to"
-msgstr ""
+msgstr "zu"
 
 #: wikigame/templates/home.html:23
 msgid "created at"
