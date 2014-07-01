@@ -3,6 +3,9 @@ import urllib.request
 import urllib.parse
 import json
 import sys
+import os.path
+
+from django.conf import settings
 
 
 def get_links(start_page, wikipedia_language='de'):
@@ -57,7 +60,7 @@ def get_links(start_page, wikipedia_language='de'):
 class NameList(object):
     def __init__(self):
         self.names = set()
-        with open('wikigame/names_usa_1990.tsv', 'r') as file:
+        with open(os.path.join(settings.BASE_DIR, 'wikigame/names_usa_1990.tsv'), 'r') as file:
             for line in file:
                 name = line.split()[0]
                 self.names.update([name])
