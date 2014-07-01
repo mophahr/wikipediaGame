@@ -1,4 +1,6 @@
 import os
+from django.utils.translation import ugettext_lazy as _
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
@@ -36,6 +38,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware'
 )
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
@@ -59,6 +62,11 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = (
+  ('de', _('German')),
+  ('en', _('English')),
+)
 
 TIME_ZONE = 'Europe/Berlin'
 

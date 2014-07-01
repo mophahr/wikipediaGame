@@ -5,5 +5,22 @@
             <li><a href="{% url "home" %}">{% trans "Restart" %}</a></li>
             <li class="divider-vertical"></li>
         </ul>
+        <div class='container-fluid'>
+            <form action="{% url 'set_language' %}" method="post" class="navbar-form pull-right" role="form">
+                <div class="form-group">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ redirect_to }}" class="form-control"/>
+                    <select name="language" class="form-control">
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                                {{ language.name_local }} ({{ language.code }})
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="{% trans "Change language" %}" class="btn"/>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
