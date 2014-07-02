@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block content %}
     <h1 class="text-center">{% blocktrans with article_name=article %}You are in <em>{{ article_name }}</em>{% endblocktrans %}</h1>
-    {% if path %}
+    {% if path|length > 1 %}
         <p class="text-center">
             {% trans "Your path so far:"%}
         </p>
@@ -12,7 +12,7 @@
             {% endfor %}
         </p>
     {% endif %}
-    <h3 class="text-center">{% trans "Path Length" %}: {{ path|length }}</h3>
+    <h3 class="text-center">{% trans "Path Length" %}: {{ path|length|add:"-1" }}</h3>
     <p>
         {% trans "Links to other articles" %}:
     </p>
