@@ -7,7 +7,7 @@
 </style>
 <div id="graph-histogram"></div>
 <script>
-    d3.json("{% url 'end_page_json' %}", function(data) {
+    d3.json("{% url 'end_page_json' problem.id %}", function(data) {
 
         data.forEach(function(series) {
             series['values'].forEach(function(d) {

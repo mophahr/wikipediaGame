@@ -118,11 +118,12 @@ def end_page(request):
                                         'results': results})
 
 
-def compute_histogram_json(request):
+def compute_histogram_json(request, problem_id):
 
     histogram = {'values': [], 'key': _('histogram of path length')}
     for path_length in range(100):
-        result = Result.objects.filter(path_length=path_length).count()
+        result = Result.objects.filter(problem__id=problem_id,
+                                       path_length=path_length).count()
         if result:
             histogram['values'].append(
                 {'x': path_length,
