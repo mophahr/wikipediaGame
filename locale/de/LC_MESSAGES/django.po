@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 13:58+0200\n"
+"POT-Creation-Date: 2014-07-02 15:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,31 @@ msgstr ""
 msgid "end"
 msgstr ""
 
-#: wikigame/views.py:123
+#: wikigame/views.py:48
+msgid "You were redirected to main page: you must start from it."
+msgstr ""
+
+#: wikigame/views.py:58
+#, fuzzy
+msgid ""
+"You tried an article without links :/. we gave you the chance to try other "
+"article."
+msgstr ""
+"In jedem Artikel stellt ihnen das Spiel eine Liste von Links zu allen "
+"Artikeln über Personen, die in dem Artikel erwähnt werden zur Verfügung."
+
+#: wikigame/views.py:67
+msgid ""
+"You tried an article that is not connected to your path: we have redirected "
+"you to your path."
+msgstr ""
+
+#: wikigame/views.py:90
+msgid ""
+"This problem doesn't seem to exist. we have redirected you to the main page."
+msgstr ""
+
+#: wikigame/views.py:141
 msgid "histogram of path length"
 msgstr "Histogramm der Pfadlängen"
 

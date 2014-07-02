@@ -4,6 +4,7 @@ from django.db.models import Min
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils.translation import ugettext as _
+from django.contrib import messages
 
 from wikigame import link_extraction
 from wikigame.link_extraction import NoLinksError
@@ -44,7 +45,8 @@ def about(request):
 def article(request, article):
     # validate entry (it must come from start_page to flush session).
     if 'path' not in request.session:
-        # todo: message the user saying it must start from a challenge.
+        messages.warning(request, _('You were redirected to main page: '
+                                    'you must start from it.'))
         return redirect('home')
 
     previous_article = request.session['path'][-1]
@@ -53,6 +55,8 @@ def article(request, article):
     # empty list means the article does not exist (the red links in wiki).
     # in this case we redirect
     if not links:
+        messages.warning(request, _('You tried an article without links :/. '
+                                    'we gave you the chance to try other article.'))
         return redirect('article', previous_article)
 
     # if it is the same, we consider it a reload and do nothing
@@ -60,7 +64,9 @@ def article(request, article):
         # ensure the article is valid (this article is accessible from the previous one)
         # this avoids cheating by changing the url (principle that HTML requests are anonymous)
         if article not in get_links(previous_article):
-            # todo: message the user saying the current article is X
+            messages.warning(request, _('You tried an article that is not '
+                                        'connected to your path: '
+                                        'we have redirected you to your path.'))
             return redirect('article', previous_article)
 
         # everything good: add it to the path and force the session to be saved.
@@ -81,7 +87,8 @@ def start_page(request, problem_id):
     try:
         problem = Problem.objects.get(id=problem_id)
     except Problem.DoesNotExist:
-        # todo: alert user
+        messages.warning(request, _('This problem doesn\'t seem to exist. '
+                                    'we have redirected you to the main page.'))
         return redirect('home')
 
     article = problem.start
