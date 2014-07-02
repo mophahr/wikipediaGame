@@ -24,6 +24,10 @@ def get_links(start_page, wikipedia_language='de'):
                       "titles": urllib.parse.quote(start_page.encode("utf8"))}
         parameters.update(more_parameters)
 
+        # this can have article names, thus need to be url-quoted.
+        if 'plcontinue' in parameters:
+            parameters['plcontinue'] = urllib.parse.quote(parameters['plcontinue'].encode("utf8"))
+
         queryString = "&".join("%s=%s" % (k, v) for k, v in parameters.items())
 
         # This ensures that redirects are followed automatically, documented here:
@@ -39,9 +43,6 @@ def get_links(start_page, wikipedia_language='de'):
         data = json.loads(jsonData)
 
         pageId = list(data['query']['pages'])[0]
-        if int(pageId)<=0:
-            sys.exit("Page doesn't exist.")
-
         link_list = data['query']['pages'][str(pageId)]['links']
 
         return [entry["title"] for entry in link_list], data
