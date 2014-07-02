@@ -4,6 +4,7 @@ import urllib.parse
 import json
 import sys
 import os.path
+import re
 
 from django.conf import settings
 
@@ -68,10 +69,10 @@ def get_links(start_page, wikipedia_language='de'):
 class NameList(object):
     def __init__(self):
         self.names = set()
-        with open(os.path.join(settings.BASE_DIR, 'wikigame/names_usa_1990.tsv'), 'r') as file:
-            for line in file:
-                name = line.split()[0]
-                self.names.update([name])
+        #with open(os.path.join(settings.BASE_DIR, 'wikigame/names_usa_1990.tsv'), 'r') as file:
+        #    for line in file:
+        #        name = line.split()[0]
+        #        self.names.update([name])
         with open(os.path.join(settings.BASE_DIR, 'wikigame/given_names.tsv'), 'r') as file:
             for line in file:
                 name = line.strip('\n').upper()
@@ -87,17 +88,17 @@ def names_condition(link_name):
     term = link_name
     term = term.upper()
 
+    # ignore if it contains a number
+    if any(char.isdigit() for char in term):
+        return False
+
     # if second letter is upper, most likely an acronym
     if link_name[1].isupper():
         return False
 
     # if last name doesn't start with upper, not a name
-    names = link_name.split()
+    names = re.split('\s|-',link_name)
     if len(names) == 1 or not names[-1][0].isupper():
-        return False
-
-    # ignore if it contains a number
-    if any(char.isdigit() for char in term):
         return False
 
     # ignore if it contains common words
@@ -108,7 +109,7 @@ def names_condition(link_name):
     names = term.split()
     if len(names) == 1:
         return False
-    return names_list.is_registered(names[0]) and names_list.is_registered(names[-1])
+    return names_list.is_registered(names[0])# and names_list.is_registered(names[-1])
 
 
 def filter_links(links_names, condition_callback=names_condition):
