@@ -53,8 +53,7 @@ def article(request, article):
     # empty list means the article does not exist (the red links in wiki).
     # in this case we redirect
     if not links:
-        # todo: message the user saying it must start from a challenge.
-        redirect('article', previous_article)
+        return redirect('article', previous_article)
 
     # if it is the same, we consider it a reload and do nothing
     if article != previous_article:
