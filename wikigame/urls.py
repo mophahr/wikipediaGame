@@ -9,5 +9,5 @@ urlpatterns = patterns(
     url(r'^%s/(.*)$' % _('start'), 'wikigame.views.start_page', name='start_page'),
     url(r'^%s$' % _('end'), 'wikigame.views.end_page', name='end_page'),
 
-    url(r'^%s/data$' % _('end'), 'wikigame.views.compute_histogram_json', name='end_page_json'),
+    url(r'^%s/(.*)/data$' % _('end'), 'wikigame.views.compute_histogram_json', name='end_page_json'),
 )
