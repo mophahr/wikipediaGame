@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-01 14:25+0200\n"
+"POT-Creation-Date: 2014-07-02 13:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,23 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: wikigame/urls.py:6
-msgid "about"
+#: wikigame/settings.py:71
+msgid "German"
 msgstr ""
 
-#: wikigame/urls.py:7
-msgid "article"
+#: wikigame/settings.py:72
+msgid "English"
 msgstr ""
 
 #: wikigame/urls.py:8
+msgid "article"
+msgstr ""
+
+#: wikigame/urls.py:9
 msgid "start"
 msgstr ""
 
-#: wikigame/urls.py:9 wikigame/urls.py:11
+#: wikigame/urls.py:10 wikigame/urls.py:12
 msgid "end"
 msgstr ""
 
-#: wikigame/views.py:104
+#: wikigame/views.py:123
 msgid "histogram of path length"
 msgstr "Histogramm der Pfadlängen"
 
@@ -92,21 +96,21 @@ msgid ""
 "Congratulations, you have <strong>set a new record</strong> of "
 "%(path_length)s steps!"
 msgstr ""
-"Gratulation! Sie haben mit %(path_lengt)s Schritten einen neuen"
-"<strong>Rekord</strong> aufgestellt."
+"Gratulation! Sie haben mit %(path_length)s Schritten einen "
+"neuen<strong>Rekord</strong> aufgestellt."
 
 #: wikigame/templates/end.html:32
 #, python-format
 msgid ""
 "\n"
-"                    You made %(path_lengt)s steps. Dare to <a href="
+"                    You made %(path_length)s steps. Dare to <a href="
 "\"%(restart_url)s\">improve your score?</a>\n"
 "                    and bet the best record?\n"
 "                "
 msgstr ""
 "\n"
-"                    Sie haben %(path_lengt)s Schritte gebraucht."
-"                    Denken Sie, Sie können Ihr <a href="
+"                    Sie haben %(path_length)s Schritte "
+"gebraucht.                    Denken Sie, Sie können Ihr <a href="
 "\"%(restart_url)s\">Resultat verbessern</a>\n"
 "                    und den bisherigen Rekord einstellen?\n"
 "                "
@@ -157,33 +161,35 @@ msgid ""
 "and your objetive is to reach a <strong>target article</strong> (e.g. "
 "Michael Jackson)."
 msgstr ""
-"Sie beginnen mit einem gegebenen <strong>Start-Artikel</strong> (z.B. Alber Einstein)"
-"und sollen vesuchen, in möglichst wenig Schritten, d.h. Klicks auf Links auf Personen aus dem jeweiligen Artikel,"
-"einen <strong>Ziel-Artikel</strong> (z.B. Michael Jackson) zu erreichen."
+"Sie beginnen mit einem gegebenen <strong>Start-Artikel</strong> (z.B. Alber "
+"Einstein)und sollen vesuchen, in möglichst wenig Schritten, d.h. Klicks auf "
+"Links auf Personen aus dem jeweiligen Artikel,einen <strong>Ziel-Artikel</"
+"strong> (z.B. Michael Jackson) zu erreichen."
 
 #: wikigame/templates/home.html:9
 msgid ""
 "For each article, the game gives you all the links that article contains to "
 "other articles."
 msgstr ""
-"In jedem Artikel stellt ihnen das Spiel eine Liste von Links zu allen Artikeln über Personen, "
-"die in dem Artikel erwähnt werden zur Verfügung."
+"In jedem Artikel stellt ihnen das Spiel eine Liste von Links zu allen "
+"Artikeln über Personen, die in dem Artikel erwähnt werden zur Verfügung."
 
 #: wikigame/templates/home.html:10
 msgid ""
 "You jump to other articles by <strong>following links</strong>, just like "
 "navigating on the internet."
 msgstr ""
-"Sie können zu anderen Artikeln gelangen, indem sie den Angezeigten Links folgen;"
-"Genauso, wie wenn Sie im Internet navigierten."
+"Sie können zu anderen Artikeln gelangen, indem sie den Angezeigten Links "
+"folgen;Genauso, wie wenn Sie im Internet navigierten."
 
 #: wikigame/templates/home.html:13
 msgid ""
 "The game ends when you reach the target article, and your score is them "
 "compared against all others players:"
 msgstr ""
-"Das Spiel endet, wenn sie den Ziel-Artikel erreichen. Die Länge des von Ihnen gewählten Pfades"
-"Wird dann mit den Ergebnissen bisheriger Spieler verglichen."
+"Das Spiel endet, wenn sie den Ziel-Artikel erreichen. Die Länge des von "
+"Ihnen gewählten PfadesWird dann mit den Ergebnissen bisheriger Spieler "
+"verglichen."
 
 #: wikigame/templates/home.html:15
 msgid "wins the player with the shortest path (least number of clicks)"
@@ -204,3 +210,7 @@ msgstr "erzeugt am"
 #: wikigame/templates/base/top_header.html:5
 msgid "Restart"
 msgstr "Neustart"
+
+#: wikigame/templates/base/top_header.html:21
+msgid "Change language"
+msgstr ""
