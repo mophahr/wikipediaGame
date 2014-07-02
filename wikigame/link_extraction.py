@@ -8,6 +8,10 @@ import os.path
 from django.conf import settings
 
 
+class NoLinksError(Exception):
+    pass
+
+
 def get_links(start_page, wikipedia_language='de'):
     print('get_links(%s)' % start_page)
     # parameters for building a string later:
@@ -43,7 +47,10 @@ def get_links(start_page, wikipedia_language='de'):
         data = json.loads(jsonData)
 
         pageId = list(data['query']['pages'])[0]
-        link_list = data['query']['pages'][str(pageId)]['links']
+        try:
+            link_list = data['query']['pages'][str(pageId)]['links']
+        except KeyError:
+            raise NoLinksError
 
         return [entry["title"] for entry in link_list], data
 

@@ -42,7 +42,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.locale.LocaleMiddleware'
+    'django.middleware.locale.LocaleMiddleware',
 )
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'

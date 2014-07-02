@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 from django.utils.translation import ugettext as _
 
 from wikigame import link_extraction
+from wikigame.link_extraction import NoLinksError
 from wikigame.models import Problem, Result, create_problems
 
 
@@ -19,8 +20,11 @@ def flush_game_session(session):
 
 
 def get_links(article_name):
-    de_links = set(link_extraction.filter_links(link_extraction.get_links(article_name, 'de')))
-    en_links = set(link_extraction.filter_links(link_extraction.get_links(article_name, 'en')))
+    try:
+        de_links = set(link_extraction.filter_links(link_extraction.get_links(article_name, 'de')))
+        en_links = set(link_extraction.filter_links(link_extraction.get_links(article_name, 'en')))
+    except NoLinksError:
+        return []
 
     return sorted(list(de_links.union(en_links)))
 
@@ -44,6 +48,13 @@ def article(request, article):
         return redirect('home')
 
     previous_article = request.session['path'][-1]
+    links = get_links(article)
+
+    # empty list means the article does not exist (the red links in wiki).
+    # in this case we redirect
+    if not links:
+        # todo: message the user saying it must start from a challenge.
+        redirect('article', previous_article)
 
     # if it is the same, we consider it a reload and do nothing
     if article != previous_article:
@@ -61,8 +72,6 @@ def article(request, article):
         problem = Problem.objects.get(id=request.session['problem'])
         if article == problem.end:
             return redirect('end_page')
-
-    links = get_links(article)
 
     context = {'article': article, 'links': links, 'path': request.session['path']}
     return render(request, 'article.html', context)
