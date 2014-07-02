@@ -18,8 +18,11 @@ def flush_game_session(session):
             session.pop(key)
 
 
-def get_links(article_name, language):
-    return link_extraction.filter_links(link_extraction.get_links(article_name, language))
+def get_links(article_name):
+    de_links = set(link_extraction.filter_links(link_extraction.get_links(article_name, 'de')))
+    en_links = set(link_extraction.filter_links(link_extraction.get_links(article_name, 'en')))
+
+    return sorted(list(de_links.union(en_links)))
 
 
 def home(request):
@@ -46,7 +49,7 @@ def article(request, article):
     if article != previous_article:
         # ensure the article is valid (this article is accessible from the previous one)
         # this avoids cheating by changing the url (principle that HTML requests are anonymous)
-        if article not in get_links(previous_article, 'en'):
+        if article not in get_links(previous_article):
             # todo: message the user saying the current article is X
             return redirect('article', previous_article)
 
@@ -59,7 +62,7 @@ def article(request, article):
         if article == problem.end:
             return redirect('end_page')
 
-    links = get_links(article, 'en')
+    links = get_links(article)
 
     context = {'article': article, 'links': links, 'path': request.session['path']}
     return render(request, 'article.html', context)
@@ -79,7 +82,7 @@ def start_page(request, problem_id):
     request.session['problem'] = problem.id
     request.session['path'] = [article]
 
-    context = {'article': article, 'links': get_links(article, 'en')}
+    context = {'article': article, 'links': get_links(article)}
 
     return render(request, 'article.html', context)
 
