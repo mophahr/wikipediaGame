@@ -43,24 +43,24 @@ msgid "You were redirected to main page: you must start from it."
 msgstr ""
 
 #: wikigame/views.py:58
-#, fuzzy
 msgid ""
 "You tried an article without links :/. we gave you the chance to try other "
 "article."
 msgstr ""
-"In jedem Artikel stellt ihnen das Spiel eine Liste von Links zu allen "
-"Artikeln über Personen, die in dem Artikel erwähnt werden zur Verfügung."
+"Sie haben eine Seite ohne Links gefunden. Wählen Sie bitte eine andere aus der Liste."
 
 #: wikigame/views.py:67
 msgid ""
 "You tried an article that is not connected to your path: we have redirected "
 "you to your path."
 msgstr ""
+"Sie haben einen Artikel aufgerufen, der nicht verlinkt war, und wurden umgeleitet."
 
 #: wikigame/views.py:90
 msgid ""
 "This problem doesn't seem to exist. we have redirected you to the main page."
 msgstr ""
+"Sie haben eine Aufgabe gewählt, die nicht existiert. Sie können hier eine existierende auswählen."
 
 #: wikigame/views.py:141
 msgid "histogram of path length"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: wikigame/templates/end.html:19
 msgid "You made it as good as the best result so far."
-msgstr ""
+msgstr "Sie haben leider keinen neuen Rekord aufgestellt."
 
 #: wikigame/templates/end.html:25
 #, python-format
