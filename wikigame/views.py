@@ -22,12 +22,12 @@ def flush_game_session(session):
 
 def get_links(article_name):
     try:
-        de_links = set(link_extraction.filter_links(link_extraction.get_links(article_name, 'de')))
-        en_links = set(link_extraction.filter_links(link_extraction.get_links(article_name, 'en')))
+        de_links = link_extraction.filter_links(link_extraction.get_links(article_name, 'de'))
     except NoLinksError:
         return []
 
-    return sorted(list(de_links.union(en_links)))
+    #return sorted(list(de_links.union(en_links)))
+    return sorted(de_links)
 
 
 def home(request):
