@@ -64,6 +64,10 @@ class NameList(object):
             for line in file:
                 name = line.split()[0]
                 self.names.update([name])
+        with open(os.path.join(settings.BASE_DIR, 'wikigame/given_names.tsv'), 'r') as file:
+            for line in file:
+                name = line.strip('\n')
+                self.names.update([name])
 
     def is_registered(self, link_name):
         return link_name in self.names
