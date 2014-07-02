@@ -19,3 +19,5 @@ def create_problems():
     Function to populate the db
     """
     Problem.objects.get_or_create(id=1, start='Albert Einstein', end='Michael Jackson')
+    Problem.objects.get_or_create(id=2, start='Angela Merkel', end='Kevin Großkreutz')
+    Problem.objects.get_or_create(id=3, start='Erich Kästner', end='Otto Dix')
