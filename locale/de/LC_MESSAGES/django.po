@@ -193,9 +193,9 @@ msgid ""
 "and your objetive is to reach a <strong>target article</strong> (e.g. "
 "Michael Jackson)."
 msgstr ""
-"Sie beginnen mit einem gegebenen <strong>Start-Artikel</strong> (z.B. Alber "
+"Sie beginnen mit einem gegebenen <strong>Start-Artikel</strong> (z.B. Albert "
 "Einstein)und sollen vesuchen, in möglichst wenig Schritten, d.h. Klicks auf "
-"Links auf Personen aus dem jeweiligen Artikel,einen <strong>Ziel-Artikel</"
+"Links auf Personen aus dem jeweiligen Artikel, einen <strong>Ziel-Artikel</"
 "strong> (z.B. Michael Jackson) zu erreichen."
 
 #: wikigame/templates/home.html:9
@@ -212,7 +212,7 @@ msgid ""
 "navigating on the internet."
 msgstr ""
 "Sie können zu anderen Artikeln gelangen, indem sie den Angezeigten Links "
-"folgen;Genauso, wie wenn Sie im Internet navigierten."
+"folgen; genauso, wie wenn Sie im Internet navigierten."
 
 #: wikigame/templates/home.html:13
 msgid ""
@@ -220,7 +220,7 @@ msgid ""
 "compared against all others players:"
 msgstr ""
 "Das Spiel endet, wenn sie den Ziel-Artikel erreichen. Die Länge des von "
-"Ihnen gewählten PfadesWird dann mit den Ergebnissen bisheriger Spieler "
+"Ihnen gewählten Pfades wird dann mit den Ergebnissen bisheriger Spieler "
 "verglichen."
 
 #: wikigame/templates/home.html:15
