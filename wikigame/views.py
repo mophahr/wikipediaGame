@@ -118,15 +118,10 @@ def start_page(request, problem_id):
     # not so well tested, so we are conservatives
     links = get_links(article)
     try:
-        if links < 30:
-            links1 = links
-            links2 = []
-            links3 = []
-        else:
-            third = len(links)//3
-            links1 = links[:third]
-            links2 = links[third:third*2]
-            links3 = links[third*2:]
+        third = len(links)//3
+        links1 = links[:third]
+        links2 = links[third:third*2]
+        links3 = links[third*2:]
     except:
         links1 = links
         links2 = []
