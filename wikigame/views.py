@@ -152,7 +152,7 @@ def end_page(request):
     flush_game_session(request.session)
 
     ## rank the results with equal ranks if they have the same path_length
-    results = Result.objects.order_by('path_length', '-time')[:20]
+    results = Result.objects.filter(problem__id=problem.id).order_by('path_length', '-time')[:20]
     current = 0
     current_result = results[0]
     for r in results:
