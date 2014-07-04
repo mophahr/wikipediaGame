@@ -17,11 +17,35 @@
     <p>
         {% trans "Links to other articles" %}:
     </p>
-    <ul>
-        {% for link in links %}
-            <li>
-                <a href="{% url "article" link %}">{{ link }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <ul>
+                    {% for link in links1 %}
+                        <li>
+                            <a href="{% url "article" link %}">{{ link }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="span4">
+                <ul>
+                    {% for link in links2 %}
+                        <li>
+                            <a href="{% url "article" link %}">{{ link }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="span4">
+                <ul>
+                    {% for link in links3 %}
+                        <li>
+                            <a href="{% url "article" link %}">{{ link }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}
