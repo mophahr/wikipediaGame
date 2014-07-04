@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-04 13:56+0200\n"
+"POT-Creation-Date: 2014-07-04 15:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,11 +38,11 @@ msgstr ""
 msgid "end"
 msgstr ""
 
-#: wikigame/views.py:48
+#: wikigame/views.py:52
 msgid "You were redirected to main page: you must start from it."
-msgstr ""
+msgstr "Sie wurden auf die Startseite weitergeleitet."
 
-#: wikigame/views.py:59
+#: wikigame/views.py:63
 msgid ""
 "You tried an article without links :/. we gave you the chance to try other "
 "article."
@@ -50,7 +50,7 @@ msgstr ""
 "Sie haben eine Seite ohne Links gefunden. Wählen Sie bitte eine andere aus "
 "der Liste."
 
-#: wikigame/views.py:68
+#: wikigame/views.py:72
 msgid ""
 "You tried an article that is not connected to your path: we have redirected "
 "you to your path."
@@ -58,14 +58,14 @@ msgstr ""
 "Sie haben einen Artikel aufgerufen, der nicht verlinkt war, und wurden "
 "umgeleitet."
 
-#: wikigame/views.py:93
+#: wikigame/views.py:108
 msgid ""
 "This problem doesn't seem to exist. we have redirected you to the main page."
 msgstr ""
 "Sie haben eine Aufgabe gewählt, die nicht existiert. Sie können hier eine "
 "existierende auswählen."
 
-#: wikigame/views.py:144
+#: wikigame/views.py:172
 msgid "histogram of path length"
 msgstr "Histogramm der Pfadlängen"
 
@@ -119,7 +119,7 @@ msgstr ""
 "        "
 
 #: wikigame/templates/end.html:19
-msgid "You made it as good as the best result so far."
+msgid "You made it as well as the best result so far."
 msgstr "Sie haben leider keinen neuen Rekord aufgestellt."
 
 #: wikigame/templates/end.html:25
@@ -135,9 +135,9 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"                    You made %(path_length)s steps. Dare to <a href="
+"                    You took %(path_length)s steps. Dare to <a href="
 "\"%(restart_url)s\">improve your score?</a>\n"
-"                    and bet the best record?\n"
+"                    and beat the best record?\n"
 "                "
 msgstr ""
 "\n"
@@ -201,7 +201,7 @@ msgstr ""
 #: wikigame/templates/home.html:9
 msgid ""
 "For each article, the game gives you all the links that article contains to "
-"other articles."
+"other articles about persons."
 msgstr ""
 "In jedem Artikel stellt ihnen das Spiel eine Liste von Links zu allen "
 "Artikeln über Personen, die in dem Artikel erwähnt werden zur Verfügung."
@@ -224,20 +224,34 @@ msgstr ""
 "verglichen."
 
 #: wikigame/templates/home.html:15
-msgid "wins the player with the shortest path (least number of clicks)"
+msgid "The player with the shortest path (least number of clicks) wins"
 msgstr "Der Spieler mit dem kürzesten Pfad gewinnt."
 
 #: wikigame/templates/home.html:17
 msgid "We selected different challenges from which you can start from:"
 msgstr "Sie können jetzt eine der folgenden Aufgaben auswählen:"
 
-#: wikigame/templates/home.html:22
+#: wikigame/templates/home.html:19
+msgid "Beginner problems:"
+msgstr "Zum Einstieg:"
+
+#: wikigame/templates/home.html:23 wikigame/templates/home.html.py:32
+#: wikigame/templates/home.html:41
 msgid "to"
 msgstr "zu"
 
-#: wikigame/templates/home.html:23
+#: wikigame/templates/home.html:24 wikigame/templates/home.html.py:33
+#: wikigame/templates/home.html:42
 msgid "created at"
 msgstr "erzeugt am"
+
+#: wikigame/templates/home.html:28
+msgid "Normal difficulty:"
+msgstr "Normaler Schwierigkeitsgrad:"
+
+#: wikigame/templates/home.html:37
+msgid "Very challenging:"
+msgstr "Herausforderungen:"
 
 #: wikigame/templates/base/top_header.html:5
 msgid "Restart"

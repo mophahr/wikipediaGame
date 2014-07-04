@@ -33,9 +33,13 @@ def get_links(article_name):
 def home(request):
     flush_game_session(request.session)
     create_problems()
-    problems = Problem.objects.all()
+    easy_problems = Problem.objects.filter(id__in=(1,2,3))
+    problems = Problem.objects.filter(id__in=(4,5,6,7,8))
+    hard_problems = Problem.objects.filter(id__in=(9,10))
 
-    return render(request, 'home.html', {'problems': problems})
+    return render(request, 'home.html', {'problems': problems, 
+                                         'easy_problems': easy_problems, 
+                                         'hard_problems': hard_problems})
 
 
 def about(request):

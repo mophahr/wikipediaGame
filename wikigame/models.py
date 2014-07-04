@@ -18,9 +18,18 @@ def create_problems():
     """
     Function to populate the db
     """
-    Problem.objects.get_or_create(id=1, start='Albert Einstein', end='Michael Jackson')
-    Problem.objects.get_or_create(id=2, start='Angela Merkel', end='Kevin Großkreutz')
-    Problem.objects.get_or_create(id=3, start='Kevin Großkreutz', end='Angela Merkel')
-    Problem.objects.get_or_create(id=4, start='Erich Kästner', end='Otto Dix')
-    Problem.objects.get_or_create(id=5, start='Johann Wolfgang von Goethe', end='Arnold Schwarzenegger')
-    Problem.objects.get_or_create(id=7, start='Donald Duck', end='Albert Camus')
+    # easy
+    Problem.objects.get_or_create(id=1, start='Jogi Löw', end='Angela Merkel')
+    Problem.objects.get_or_create(id=2, start='John Lennon', end='Michael Jackson')
+    Problem.objects.get_or_create(id=3, start='Jean-Claude van Damme', end='Arnold Schwarzenegger')
+    
+    #normal
+    Problem.objects.get_or_create(id=4, start='Albert Einstein', end='Michael Jackson')
+    Problem.objects.get_or_create(id=5, start='Kevin Großkreutz', end='Angela Merkel')
+    Problem.objects.get_or_create(id=6, start='Angela Merkel', end='Kevin Großkreutz')
+    Problem.objects.get_or_create(id=7, start='Johann Wolfgang von Goethe', end='Arnold Schwarzenegger')
+    Problem.objects.get_or_create(id=8, start='August der Starke', end='Barack Obama')
+   
+    # hard
+    Problem.objects.get_or_create(id=9, start='Erich Kästner', end='Otto Dix')
+    Problem.objects.get_or_create(id=10, start='Donald Duck', end='Albert Camus')

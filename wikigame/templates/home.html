@@ -6,18 +6,37 @@
         {% trans "You start on a given <strong>start article</strong> (e.g. Albert Einstein), and your objetive is to reach a <strong>target article</strong> (e.g. Michael Jackson)."%}
     </p>
     <p>
-        {% trans "For each article, the game gives you all the links that article contains to other articles." %}
+        {% trans "For each article, the game gives you all the links that article contains to other articles about persons." %}
         {% trans "You jump to other articles by <strong>following links</strong>, just like navigating on the internet." %}
     </p>
     <p>
         {% trans "The game ends when you reach the target article, and your score is them compared against all others players:" %}
     </p>
-    <h4 class="text-center">{% trans "wins the player with the shortest path (least number of clicks)" %}</h4>
+    <h4 class="text-center">{% trans "The player with the shortest path (least number of clicks) wins" %}</h4>
     <p>
         {% trans "We selected different challenges from which you can start from:" %}
     </p>
+    <h4> {% trans "Beginner problems:" %}</h4>
+    <ul>
+        {% for problem in easy_problems %}
+        <li>
+            <a href="{% url "start_page" problem.id %}">{{ problem.start }} {% trans "to" %} {{ problem.end }}</a>
+            ({% trans "created at" %} {{ problem.created_at }})
+        </li>
+        {% endfor %}
+    </ul>
+    <h4> {% trans "Normal difficulty:" %}</h4>
     <ul>
         {% for problem in problems %}
+        <li>
+            <a href="{% url "start_page" problem.id %}">{{ problem.start }} {% trans "to" %} {{ problem.end }}</a>
+            ({% trans "created at" %} {{ problem.created_at }})
+        </li>
+        {% endfor %}
+    </ul>
+    <h4> {% trans "Very challenging:" %}</h4>
+    <ul>
+        {% for problem in hard_problems %}
         <li>
             <a href="{% url "start_page" problem.id %}">{{ problem.start }} {% trans "to" %} {{ problem.end }}</a>
             ({% trans "created at" %} {{ problem.created_at }})
