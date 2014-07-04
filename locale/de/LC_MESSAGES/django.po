@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 15:53+0200\n"
+"POT-Creation-Date: 2014-07-04 13:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,27 +42,30 @@ msgstr ""
 msgid "You were redirected to main page: you must start from it."
 msgstr ""
 
-#: wikigame/views.py:58
+#: wikigame/views.py:59
 msgid ""
 "You tried an article without links :/. we gave you the chance to try other "
 "article."
 msgstr ""
-"Sie haben eine Seite ohne Links gefunden. Wählen Sie bitte eine andere aus der Liste."
+"Sie haben eine Seite ohne Links gefunden. Wählen Sie bitte eine andere aus "
+"der Liste."
 
-#: wikigame/views.py:67
+#: wikigame/views.py:68
 msgid ""
 "You tried an article that is not connected to your path: we have redirected "
 "you to your path."
 msgstr ""
-"Sie haben einen Artikel aufgerufen, der nicht verlinkt war, und wurden umgeleitet."
+"Sie haben einen Artikel aufgerufen, der nicht verlinkt war, und wurden "
+"umgeleitet."
 
-#: wikigame/views.py:90
+#: wikigame/views.py:93
 msgid ""
 "This problem doesn't seem to exist. we have redirected you to the main page."
 msgstr ""
-"Sie haben eine Aufgabe gewählt, die nicht existiert. Sie können hier eine existierende auswählen."
+"Sie haben eine Aufgabe gewählt, die nicht existiert. Sie können hier eine "
+"existierende auswählen."
 
-#: wikigame/views.py:141
+#: wikigame/views.py:144
 msgid "histogram of path length"
 msgstr "Histogramm der Pfadlängen"
 
@@ -71,15 +74,20 @@ msgstr "Histogramm der Pfadlängen"
 msgid "You are in <em>%(article_name)s</em>"
 msgstr "Sie sind im Artikel <em>%(article_name)s</em>"
 
-#: wikigame/templates/article.html:7
+#: wikigame/templates/article.html:5
+#, python-format
+msgid "Objective: <em>%(end)s</em>"
+msgstr ""
+
+#: wikigame/templates/article.html:8
 msgid "Your path so far:"
 msgstr "Bisheriger Pfad"
 
-#: wikigame/templates/article.html:15 wikigame/templates/histogram.html:31
+#: wikigame/templates/article.html:16 wikigame/templates/histogram.html:31
 msgid "Path Length"
 msgstr "Pfadlänge"
 
-#: wikigame/templates/article.html:17
+#: wikigame/templates/article.html:18
 msgid "Links to other articles"
 msgstr "Links zu anderen Artikeln"
 

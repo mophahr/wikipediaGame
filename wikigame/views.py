@@ -50,6 +50,7 @@ def article(request, article):
         return redirect('home')
 
     previous_article = request.session['path'][-1]
+    problem = Problem.objects.get(id=request.session['problem'])
     links = get_links(article)
 
     # empty list means the article does not exist (the red links in wiki).
@@ -74,11 +75,13 @@ def article(request, article):
         request.session.modified = True
 
         # check if we have reached the final article
-        problem = Problem.objects.get(id=request.session['problem'])
         if article == problem.end:
             return redirect('end_page')
 
-    context = {'article': article, 'links': links, 'path': request.session['path']}
+    context = {'article': article,
+               'links': links,
+               'path': request.session['path'],
+               'problem': problem}
     return render(request, 'article.html', context)
 
 
