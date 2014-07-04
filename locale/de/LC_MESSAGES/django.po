@@ -77,7 +77,7 @@ msgstr "Sie sind im Artikel <em>%(article_name)s</em>"
 #: wikigame/templates/article.html:5
 #, python-format
 msgid "Objective: <em>%(end)s</em>"
-msgstr ""
+msgstr "Ziel:  <em>%(end)s</em>"
 
 #: wikigame/templates/article.html:8
 msgid "Your path so far:"
@@ -165,7 +165,7 @@ msgstr "Schritte"
 
 #: wikigame/templates/end.html:48
 msgid "at"
-msgstr ""
+msgstr "um"
 
 #: wikigame/templates/end.html:49
 msgid "<<------ your result"
@@ -245,4 +245,4 @@ msgstr "Neustart"
 
 #: wikigame/templates/base/top_header.html:21
 msgid "Change language"
-msgstr ""
+msgstr "Sprache ändern"
