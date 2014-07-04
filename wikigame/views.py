@@ -78,8 +78,19 @@ def article(request, article):
         if article == problem.end:
             return redirect('end_page')
 
+    # not so well tested, so we are conservatives
+    try:
+        third = len(links)//3
+        links1 = links[:third]
+        links2 = links[third:third*2]
+        links3 = links[third*2:]
+    except:
+        links1 = links
+        links2 = []
+        links3 = []
+
     context = {'article': article,
-               'links': links,
+               'links1': links1, 'links2': links2, 'links3': links3,
                'path': request.session['path'],
                'problem': problem}
     return render(request, 'article.html', context)
@@ -100,7 +111,20 @@ def start_page(request, problem_id):
     request.session['problem'] = problem.id
     request.session['path'] = [article]
 
-    context = {'article': article, 'links': get_links(article), 'path': request.session['path']}
+    # not so well tested, so we are conservatives
+    links = get_links(article)
+    try:
+        third = len(links)//3
+        links1 = links[:third]
+        links2 = links[third:third*2]
+        links3 = links[third*2:]
+    except:
+        links1 = links
+        links2 = []
+        links3 = []
+
+    context = {'article': article, 'links1': links1, 'links2': links2, 'links3': links3,
+               'path': request.session['path'], 'problem': problem}
 
     return render(request, 'article.html', context)
 
