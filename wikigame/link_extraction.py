@@ -93,8 +93,9 @@ def names_condition(link_name):
         return False
 
     # if second letter is upper, most likely an acronym
-    if link_name[1].isupper():
-        return False
+    if len(link_name)>1:
+        if link_name[1].isupper():
+            return False
 
     # if last name doesn't start with upper, not a name
     names = re.split('\s|-',link_name)
