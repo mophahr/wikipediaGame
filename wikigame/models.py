@@ -20,4 +20,7 @@ def create_problems():
     """
     Problem.objects.get_or_create(id=1, start='Albert Einstein', end='Michael Jackson')
     Problem.objects.get_or_create(id=2, start='Angela Merkel', end='Kevin Großkreutz')
-    Problem.objects.get_or_create(id=3, start='Erich Kästner', end='Otto Dix')
+    Problem.objects.get_or_create(id=3, start='Kevin Großkreutz', end='Angela Merkel')
+    Problem.objects.get_or_create(id=4, start='Erich Kästner', end='Otto Dix')
+    Problem.objects.get_or_create(id=5, start='Johann Wolfgang von Goethe', end='Arnold Schwarzenegger')
+    Problem.objects.get_or_create(id=7, start='Donald Duck', end='Albert Camus')
