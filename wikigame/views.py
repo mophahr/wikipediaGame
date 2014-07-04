@@ -100,7 +100,8 @@ def start_page(request, problem_id):
     request.session['problem'] = problem.id
     request.session['path'] = [article]
 
-    context = {'article': article, 'links': get_links(article), 'path': request.session['path']}
+    context = {'article': article, 'links': get_links(article),
+               'path': request.session['path'], 'problem': problem}
 
     return render(request, 'article.html', context)
 
