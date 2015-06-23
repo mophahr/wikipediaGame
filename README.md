@@ -3,13 +3,24 @@ wikipediaGame
 
 Installation
 ------------
-
+If you are on python 2 switch to a python 3 environment:
+     
+     # install virtualenv if necessary:
+     pip install virtualenv
+     
+     # create an environment called Py3VE:
+     virtualenv -p python3 envname
+     
+     # switch to it:
+     source Py3VE/bin/activate
+     
 We install Django
 
      pip install django
 
 and then initialise the database: In the directory (wikipediaGame) run
      
+     mkdir database
      python manage.py syncdb
 
 and that's it.
