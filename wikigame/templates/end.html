@@ -31,7 +31,7 @@
                 {% url "start_page" problem.id as restart_url %}
                 {% blocktrans with path_length=result.path_length %}
                     You took {{ path_length }} steps. Dare to <a href="{{ restart_url }}">improve your score?</a>
-                    and beat the best record?
+                    and beat the record?
                 {% endblocktrans %}
             </h4>
         </div>
