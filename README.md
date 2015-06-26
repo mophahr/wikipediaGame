@@ -9,7 +9,7 @@ If you are on python 2 switch to a python 3 environment:
      pip install virtualenv
      
      # create an environment called Py3VE:
-     virtualenv -p python3 envname
+     virtualenv -p python3 Py3VE
      
      # switch to it:
      source Py3VE/bin/activate
