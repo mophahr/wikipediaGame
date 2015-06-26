@@ -14,9 +14,10 @@ If you are on python 2 switch to a python 3 environment:
      # switch to it:
      source Py3VE/bin/activate
      
-We install Django
+We need to install Django and Requests
 
      pip install django
+     pip install requests
 
 and then initialise the database: In the directory (wikipediaGame) run
      
