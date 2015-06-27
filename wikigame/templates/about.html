@@ -1,9 +1,23 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
-    <h1 class="text-center">{% trans "About this Game" %}</h1>
-    <p>
-        {% trans "Some description of the project and so on..."%}
-	{% trans "The Game " %}
-    </p>
+    <h2 class="text-left">{% trans "Rules of the Game" %}</h2>
+
+    <p>{% trans "For each challenge, the goal is to move with the fewer number of clicks from the starting person to a target person. The    links available on each step correspond to the hyperlinks contained in the (German) Wikipedia page of that person that point to a    Wikipedia page of another person. "%}    </p>
+
+    <h2 class="text-left">{% trans "Concepts" %}</h2>
+    <p> {% trans "This simple game illustrates some scientific ideas studied in the field of complex systems:"%}</p>
+    <h4 class="text-left">{% trans "Network"%}</h4>
+    <p> {% trans "A network (or graph) is composed by nodes connected to each other by links. In the example of the game, the nodes are    (Wikipedia pages of) people and the links are (hyper) connections between them.  Networks appear in social (e.g.,    diesease spreading), biological (e.g., food webs),  and technological (e.g., the Internet) applications and are important because the    connectivity of the network is directly connected with the behavior (efficiency) of    the system. "%}</p>
+    <h4 class="text-left">{% trans "Small-world networks"%}</h4>
+    <p> {% trans " A typical properties of (social) networks is that nodes are connected to each other in groups (friends of my friends are   also friends). At the same time, two arbitrary nodes in the network are typically close to each other. More precisely, in a network with    N nodes (very large), the typical distance between nodes grows slowly with N (typically with the logarithm of N). Networks which satisfy these properties are    known as <a href=https://en.wikipedia.org/wiki/Small-world_network> small world networks</a>. In social networks this effect is sometimes known as <a href=https://en.wikipedia.org/wiki/Six_degrees_of_separation> six degrees of separation </a> "%}</p>
+    <h4 class="text-left">{% trans "Navigability"%}</h4>
+    <p> {% trans " The fact that there is a short path between two nodes of a small world network does not imply that it is easy to find it!    This game illustrates this problem of navigability (or routing) using only local information and some expectation about the target node.  "%}</p>
+
+
+    <h2 class="text-left">{% trans "Origin of this project"%}</h2>
+
+    <p> {% trans " This game was designed as part of the presentations of the <a href=http://www.wissenschaftsnacht-dresden.de/english/>    Long Night of Science in Dresden </a> at the <a href=htttp://www.pks.mpg.de> Max Planck Institute for the Physics of Complex    Systems </a> (made by    the group <a href=http://www.pks.mpg.de/mpi-doc/sodyn/> Dynamical Systems and Social Dynamics </a> ). The success during the 2014 edition motivated us to launch this online page in time for the 2015 edition. All codes are  freely available <a href=https://github.com/mophahr/wikipediaGame> here</a>. Contact: game (AT) complexidade.org or <a href=www.twitter.org/SmallWorldGame> @SmallWorldGame </a> "%}</p>
+
+
    {% endblock %}
