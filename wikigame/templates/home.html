@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
-    <h1 class="text-center">{% trans "Wikipedia game" %}</h1>
+    <h1 class="text-center">{% trans "Small World Game" %}</h1>
     <p>
-        {% trans "You start on a given <strong>start article</strong> (e.g. Albert Einstein), and your objetive is to reach a <strong>target article</strong> (e.g. Michael Jackson)."%}
+        {% trans "You start on a given <strong>start person</strong> (e.g. Albert Einstein), and your objective is to reach a <strong>target person</strong> (e.g. Michael Jackson)."%}
     </p>
     <p>
-        {% trans "For each article, the game gives you all the links that article contains to other articles about persons." %}
-        {% trans "You jump to other articles by <strong>following links</strong>, just like navigating on the internet." %}
+        {% trans "For each person, the game gives you all the links that that person's Wikipedia article contains that link to other articles about persons." %}
+        {% trans "You jump to other persons by <strong>following links</strong>, just like navigating on the internet." %}
     </p>
     <p>
-        {% trans "The game ends when you reach the target article, and your score is them compared against all others players:" %}
+        {% trans "The game ends when you reach the target person, and your score is them compared against all others players:" %}
     </p>
     <h4 class="text-center">{% trans "The player with the shortest path (least number of clicks) wins" %}</h4>
     <p>
@@ -43,4 +43,7 @@
         </li>
         {% endfor %}
     </ul>
+    <p>
+        {% trans "<strong>Do you have ideas for new challenges or general comments?</strong> Then contact us: game@complexidade.org or <a href=http://www.twitter.com/SmallWorldGame> @SmallWorldGame </a>"%}
+
 {% endblock %}
