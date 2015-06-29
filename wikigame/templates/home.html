@@ -17,7 +17,7 @@
         {% trans "We selected different challenges from which you can start from:" %}
     </p>
     <p>
-        {% trans "In parentheses it shows the Minimun, the Average and the Maximum path length so far." %}
+        {% trans "In parentheses it shows the minimum, the everage and the maximum path length so far: (min; avg; max)." %}
         {% trans "Can you beat the minimum?" %}
     </p>
     <h4> {% trans "Beginner problems:" %}</h4>
@@ -25,7 +25,7 @@
         {% for problem in easy_problems %}
         <li>
             <a href="{% url "start_page" problem.id %}">{{ problem.start }} {% trans "to" %} {{ problem.end }}</a>
-            ({{ problem.min }}, {{ problem.avg }}, {{ problem.max }})
+            ({{ problem.min }}; {{ problem.avg|floatformat:1 }}; {{ problem.max }})
         </li>
         {% endfor %}
     </ul>

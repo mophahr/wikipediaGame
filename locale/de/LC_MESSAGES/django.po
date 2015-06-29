@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-29 08:08+0200\n"
+"POT-Creation-Date: 2015-06-29 14:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -127,18 +127,6 @@ msgid "Origin of this project"
 msgstr "Ursprung dieses Projekts"
 
 #: wikigame/templates/about.html:20
-#, fuzzy
-#| msgid ""
-#| " This game was designed as part of the presentations of the <a "
-#| "href=http://www.wissenschaftsnacht-dresden.de/english/>    Long Night of "
-#| "Science in Dresden </a> at the <a href=htttp://www.pks.mpg.de> Max Planck "
-#| "Institute for the Physics of Complex    Systems </a> (made by    the "
-#| "group <a href=http://www.pks.mpg.de/mpi-doc/sodyn/> Dynamical Systems and "
-#| "Social Dynamics </a> ). The success during the 2014 edition motivated us "
-#| "to launch this online page in time for the 2015 edition. All codes are  "
-#| "freely available <a href=https://github.com/mophahr/wikipediaGame> here</"
-#| "a>. Contact: game (AT) complexidade.org or <a href=www.twitter.org/"
-#| "SmallWorldGame> @SmallWorldGame </a> "
 msgid ""
 " This game was designed as part of the presentations of the <a href=http://"
 "www.wissenschaftsnacht-dresden.de/english/>    Long Night of Science in "
@@ -194,7 +182,7 @@ msgstr "Neustart"
 
 #: wikigame/templates/base/top_header.html:9
 msgid "About This Project"
-msgstr ""
+msgstr "Über dieses Projekt"
 
 #: wikigame/templates/base/top_header.html:25
 msgid "Change language"
@@ -302,8 +290,8 @@ msgid ""
 "and your objective is to reach a <strong>target person</strong> (e.g. "
 "Michael Jackson)."
 msgstr ""
-"Sie beginnen mit einer gegebenen <strong>Startperson</strong> (z.B. Albert "
-"Einstein)und sollen vesuchen, in möglichst wenig Schritten, d.h. Klicks auf "
+"Du beginnst mit einer gegebenen <strong>Startperson</strong> (z.B. Albert "
+"Einstein)und sollst versuchen, in möglichst wenig Schritten, d.h. Klicks auf "
 "Links auf Personen aus dem jeweiligen Artikel, eine <strong>Zielperson</"
 "strong> (z.B. Michael Jackson) zu erreichen."
 
@@ -312,24 +300,24 @@ msgid ""
 "For each person, the game gives you all the links that that person's "
 "Wikipedia article contains that link to other articles about persons."
 msgstr ""
-"Zu jeder Person stellt Ihnen das Spiel eine Liste von Links zu allen "
-"Artikeln über Personen, die in dem Wikipediaartikel der momentanen Person "
-"erwähnt werden, zur Verfügung."
+"Zu jeder Person stellt Dir das Spiel eine Liste von Links zu allen Artikeln "
+"über Personen, die in dem Wikipediaartikel der momentanen Person erwähnt "
+"werden, zur Verfügung."
 
 #: wikigame/templates/home.html:10
 msgid ""
 "You jump to other persons by <strong>following links</strong>, just like "
 "navigating on the internet."
 msgstr ""
-"Sie können zu anderen Personen gelangen, indem Sie den angezeigten Links "
-"folgen; genauso, wie wenn Sie im Internet navigierten."
+"Du kannst zu anderen Personen gelangen, indem Du den angezeigten Links "
+"folgst; genauso, wie wenn Du im Internet navigieren würdest."
 
 #: wikigame/templates/home.html:13
 msgid ""
 "The game ends when you reach the target person, and your score is them "
 "compared against all others players:"
 msgstr ""
-"Das Spiel endet, wenn sie die Zielperson erreichen. Die Länge des von Ihnen "
+"Das Spiel endet, wenn Du die Zielperson erreichst. Die Länge des von Dir "
 "gewählten Pfades wird dann mit den Ergebnissen bisheriger Spieler verglichen."
 
 #: wikigame/templates/home.html:15
@@ -338,17 +326,17 @@ msgstr "Der Spieler mit dem kürzesten Pfad gewinnt."
 
 #: wikigame/templates/home.html:17
 msgid "We selected different challenges from which you can start from:"
-msgstr "Sie können jetzt eine der folgenden Aufgaben auswählen:"
+msgstr "Du kannst jetzt eine der folgenden Aufgaben auswählen:"
 
 #: wikigame/templates/home.html:20
 msgid ""
-"In parentheses it shows the Minimun, the Average and the Maximum path length "
-"so far."
-msgstr ""
+"In parentheses it shows the minimum, the everage and the maximum path length "
+"so far: (min; avg; max)."
+msgstr "In Klammern werden die minimale, durchschnittliche, und maximale bisher erreichte Pfadlänge angezeigt: (Min.; Durchsch.; Max.)"
 
 #: wikigame/templates/home.html:21
 msgid "Can you beat the minimum?"
-msgstr ""
+msgstr "Schaffst Du es schneller als das Minimum?"
 
 #: wikigame/templates/home.html:23
 msgid "Beginner problems:"
@@ -373,9 +361,9 @@ msgid ""
 "Then contact us: game@complexidade.org or <a href=http://www.twitter.com/"
 "SmallWorldGame> @SmallWorldGame </a>"
 msgstr ""
-"<strong>Sie haben vorschläge für weitere Challenges oder allgemeine "
-"Kommentare?</strong> Dann kontaktieren Sie uns unter game@complexidade.org "
-"oder <a href=http://www.twitter.com/SmallWorldGame> @SmallWorldGame </a>"
+"<strong>Du hast Vorschläge für weitere Challenges oder allgemeine Kommentare?"
+"</strong> Dann kontaktier uns unter game@complexidade.org oder <a "
+"href=http://www.twitter.com/SmallWorldGame> @SmallWorldGame </a>!"
 
 #: wikigame/urls.py:9
 msgid "article"
@@ -398,8 +386,8 @@ msgid ""
 "You tried an article without links :/. we gave you the chance to try other "
 "article."
 msgstr ""
-"Sie haben eine Seite ohne Links gefunden. Wählen Sie bitte eine andere aus "
-"der Liste."
+"Sie haben eine Seite ohne Links gefunden :/. Wählen Sie bitte eine andere "
+"aus der Liste."
 
 #: wikigame/views.py:78
 msgid ""

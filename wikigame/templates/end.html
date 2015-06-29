@@ -45,7 +45,7 @@
         {% for previous_result in results %}
             <li>
                 <strong>{{ previous_result.rank|ordinal }}</strong> {% trans "place"%}:
-                {{ previous_result.path_length }} {% trans "steps" %} ({% trans "at" %} {{ previous_result.time|date:'H:i:s' }})
+                {{ previous_result.path_length }} {% trans "steps" %} ({{ previous_result.time|date:'d N Y H:i:s e' }})
                 {% if previous_result.id == result.id %}<strong>{% trans "<<------ your result" %}</strong>{% endif %}
             </li>
         {% endfor %}
