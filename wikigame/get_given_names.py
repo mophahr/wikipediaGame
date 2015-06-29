@@ -1,8 +1,15 @@
 # -*- coding: utf-8 -*-
-import urllib.request
-import urllib.parse
 import json
 import sys
+
+# see http://python3porting.com/noconv.html#import-errors
+try:
+    # For Python 3.0 and later
+    from urllib.request import urlopen
+    from urllib.parse import quote
+except ImportError:
+    # Fall back to Python 2's urllib
+    from urllib import urlopen, quote
 
 
 def get_links(start_page, wikipedia_language='de'):
@@ -19,7 +26,7 @@ def get_links(start_page, wikipedia_language='de'):
                       "pllimit": 500,
                       "plnamespace": 0,
                       "continue" : "",
-                      "titles": urllib.parse.quote(start_page.encode("utf8"))}
+                      "titles": quote(start_page.encode("utf8"))}
         parameters.update(more_parameters)
 
         queryString = "&".join("%s=%s" % (k, v) for k, v in parameters.items())
@@ -31,8 +38,8 @@ def get_links(start_page, wikipedia_language='de'):
         url = "http://%s.wikipedia.org/w/api.php?%s" % (wikipedia_language, queryString)
 
         #get json data and make a dictionary out of it:
-        request = urllib.request.urlopen(url)
-        encoding = request.headers.get_content_charset()
+        request = urlopen(url)
+        encoding = request.headers.getparam('charset')
         jsonData = request.read().decode(encoding)
         data = json.loads(jsonData)
 
@@ -54,7 +61,7 @@ def get_links(start_page, wikipedia_language='de'):
            if key == 'continue':
               continue_dict.update({key: data['continue'][key]})
            else:
-              val= "|".join([urllib.parse.quote(e) for e in data['continue'][key].split('|')])
+              val= "|".join([quote(e) for e in data['continue'][key].split('|')])
               continue_dict.update({key: val})
         new_links, data=get_more_links(continue_dict)
         all_links+=new_links

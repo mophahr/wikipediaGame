@@ -3,31 +3,41 @@ wikipediaGame
 
 Installation
 ------------
-If you are on python 2 switch to a python 3 environment:
-     
+
+Install pip if you don't have it:
+
+    wget "https://bootstrap.pypa.io/get-pip.py"
+    python get-pip.py
+
+(Optional) create a virtualenv and enter into it
+
      # install virtualenv if necessary:
      pip install virtualenv
-     
-     # create an environment called Py3VE:
-     virtualenv -p python3 Py3VE
-     
+
+     # create a virtual environment
+     virtualenv ~/.virtualenvs/wikigame
+
      # switch to it:
-     source Py3VE/bin/activate
-     
-We need to install Django and Requests
+     source ~/.virtualenvs/wikigame/bin/activate
+
+Install Django:
 
      pip install django
-     pip install requests
 
-and then initialise the database: In the directory (wikipediaGame) run
-     
+Clone the code:
+
+    git clone https://github.com/mophahr/wikipediaGame.git
+
+Initialise the database: In the directory (wikipediaGame) run
+
+     cd wikipediaGame
      mkdir database
-     python manage.py syncdb
+     python manage.py migrate
 
 and that's it.
 
-Running the server
-------------------
+Running the game
+----------------
 
 Go to the directory (wikipediaGame) and run
 

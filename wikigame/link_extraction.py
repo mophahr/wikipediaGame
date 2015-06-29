@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
-import urllib.request
-import urllib.parse
 import json
-import sys
 import os.path
 import re
+
+# see http://python3porting.com/noconv.html#import-errors
+try:
+    # For Python 3.0 and later
+    from urllib.request import urlopen
+    from urllib.parse import quote
+except ImportError:
+    # Fall back to Python 2's urllib
+    from urllib import urlopen, quote
 
 from django.conf import settings
 
@@ -26,12 +32,12 @@ def get_links(start_page, wikipedia_language='de'):
                       "prop": "links",
                       "pllimit": 500,
                       "plnamespace": 0,
-                      "titles": urllib.parse.quote(start_page.encode("utf8"))}
+                      "titles": quote(start_page.encode("utf8"))}
         parameters.update(more_parameters)
 
         # this can have article names, thus need to be url-quoted.
         if 'plcontinue' in parameters:
-            parameters['plcontinue'] = urllib.parse.quote(parameters['plcontinue'].encode("utf8"))
+            parameters['plcontinue'] = quote(parameters['plcontinue'].encode("utf8"))
 
         queryString = "&".join("%s=%s" % (k, v) for k, v in parameters.items())
 
@@ -42,8 +48,8 @@ def get_links(start_page, wikipedia_language='de'):
         url = "http://%s.wikipedia.org/w/api.php?%s" % (wikipedia_language, queryString)
 
         #get json data and make a dictionary out of it:
-        request = urllib.request.urlopen(url)
-        encoding = request.headers.get_content_charset()
+        request = urlopen(url)
+        encoding = request.headers.getparam('charset')
         jsonData = request.read().decode(encoding)
         data = json.loads(jsonData)
 
