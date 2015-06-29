@@ -49,7 +49,10 @@ def get_links(start_page, wikipedia_language='de'):
 
         #get json data and make a dictionary out of it:
         request = urlopen(url)
-        encoding = request.headers.getparam('charset')
+        try:
+            encoding = request.headers.getparam('charset')
+        except:
+            encoding = request.headers.get_param('charset')
         jsonData = request.read().decode(encoding)
         data = json.loads(jsonData)
 
