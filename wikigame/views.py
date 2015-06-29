@@ -1,6 +1,6 @@
 import json
 
-from django.db.models import Min
+from django.db.models import Min, Max, Avg, Count
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils.translation import ugettext as _
@@ -33,12 +33,18 @@ def get_links(article_name):
 def home(request):
     flush_game_session(request.session)
     create_problems()
-    easy_problems = Problem.objects.filter(id__in=(1,2,3))
-    problems = Problem.objects.filter(id__in=(4,5,6,7,8))
-    hard_problems = Problem.objects.filter(id__in=(9,10))
 
-    return render(request, 'home.html', {'problems': problems, 
-                                         'easy_problems': easy_problems, 
+    problems = Problem.objects.annotate(count=Count('result'),
+                                        min=Min('result__path_length'),
+                                        avg=Avg('result__path_length'),
+                                        max=Max('result__path_length'))
+
+    easy_problems = problems.filter(id__in=(1,2,3))
+    normal_problems = problems.filter(id__in=(4,5,6,7,8))
+    hard_problems = problems.filter(id__in=(9,10))
+
+    return render(request, 'home.html', {'easy_problems': easy_problems,
+                                         'normal_problems': normal_problems,
                                          'hard_problems': hard_problems})
 
 

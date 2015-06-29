@@ -16,21 +16,25 @@
     <p>
         {% trans "We selected different challenges from which you can start from:" %}
     </p>
+    <p>
+        {% trans "In parentheses it shows the Minimun, the Average and the Maximum path length so far." %}
+        {% trans "Can you beat the minimum?" %}
+    </p>
     <h4> {% trans "Beginner problems:" %}</h4>
     <ul>
         {% for problem in easy_problems %}
         <li>
             <a href="{% url "start_page" problem.id %}">{{ problem.start }} {% trans "to" %} {{ problem.end }}</a>
-            ({% trans "created at" %} {{ problem.created_at }})
+            ({{ problem.min }}, {{ problem.avg }}, {{ problem.max }})
         </li>
         {% endfor %}
     </ul>
     <h4> {% trans "Normal difficulty:" %}</h4>
     <ul>
-        {% for problem in problems %}
+        {% for problem in normal_problems %}
         <li>
             <a href="{% url "start_page" problem.id %}">{{ problem.start }} {% trans "to" %} {{ problem.end }}</a>
-            ({% trans "created at" %} {{ problem.created_at }})
+            ({{ problem.min }}, {{ problem.avg }}, {{ problem.max }})
         </li>
         {% endfor %}
     </ul>
@@ -39,11 +43,11 @@
         {% for problem in hard_problems %}
         <li>
             <a href="{% url "start_page" problem.id %}">{{ problem.start }} {% trans "to" %} {{ problem.end }}</a>
-            ({% trans "created at" %} {{ problem.created_at }})
+            ({{ problem.min }}, {{ problem.avg }}, {{ problem.max }})
         </li>
         {% endfor %}
     </ul>
     <p>
         {% trans "<strong>Do you have ideas for new challenges or general comments?</strong> Then contact us: game@complexidade.org or <a href=http://www.twitter.com/SmallWorldGame> @SmallWorldGame </a>"%}
-
+    </p>
 {% endblock %}
