@@ -7,14 +7,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9q1a=z0_b$r9*q!jso--(xzno8m6xv0b+lhli52q#m(o@^81oh'
+SECRET_KEY = 'duirgnwk0#6$ohyvc1(*zs=pi@5(7+nmp)*p8iyq873=xf0%&n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['game.complexidade.org']
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
