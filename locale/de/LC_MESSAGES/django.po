@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-29 14:56+0200\n"
+"POT-Creation-Date: 2015-06-29 15:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -172,9 +172,9 @@ msgstr "Pfadlänge"
 msgid "Links to other articles"
 msgstr "Links zu anderen Artikeln"
 
-#: wikigame/templates/base.html:6
-msgid "Wikipedia game"
-msgstr "Wikipedia-Spiel"
+#: wikigame/templates/base.html:6 wikigame/templates/home.html:4
+msgid "Small World Game"
+msgstr "Small-World-Spiel"
 
 #: wikigame/templates/base/top_header.html:5
 msgid "Restart"
@@ -256,10 +256,6 @@ msgstr "Rang"
 msgid "steps"
 msgstr "Schritte"
 
-#: wikigame/templates/end.html:48
-msgid "at"
-msgstr "um"
-
 #: wikigame/templates/end.html:49
 msgid "<<------ your result"
 msgstr "<<------ Ihr Ergebnis"
@@ -279,10 +275,6 @@ msgstr "Länge"
 #: wikigame/templates/histogram.html:34
 msgid "Number of results"
 msgstr "Anzahl an Ergebnissen"
-
-#: wikigame/templates/home.html:4
-msgid "Small World Game"
-msgstr "Small-World-Spiel"
 
 #: wikigame/templates/home.html:6
 msgid ""
@@ -332,7 +324,9 @@ msgstr "Du kannst jetzt eine der folgenden Aufgaben auswählen:"
 msgid ""
 "In parentheses it shows the minimum, the everage and the maximum path length "
 "so far: (min; avg; max)."
-msgstr "In Klammern werden die minimale, durchschnittliche, und maximale bisher erreichte Pfadlänge angezeigt: (Min.; Durchsch.; Max.)"
+msgstr ""
+"In Klammern werden die minimale, durchschnittliche, und maximale bisher "
+"erreichte Pfadlänge angezeigt: (Min.; Durchsch.; Max.)"
 
 #: wikigame/templates/home.html:21
 msgid "Can you beat the minimum?"
@@ -407,3 +401,4 @@ msgstr ""
 #: wikigame/views.py:178
 msgid "histogram of path length"
 msgstr "Histogramm der Pfadlängen"
+
