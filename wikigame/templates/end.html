@@ -4,7 +4,7 @@
 {% block content %}
     <h1 class="text-center">{% trans "Congratulations"%}</h1>
     <h4 class="text-center">
-        {% trans "You've solved the problem!" %}
+        {% trans "You've reached the target person!" %}
     </h4>
     <p>
         {% blocktrans with path_lenght=result.path_length starting_article=problem.start ending_article=problem.end %}
@@ -16,7 +16,7 @@
     {% if result.path_length == best %}
         <div class="alert alert-success" role="alert">
             <h4 class="text-center">
-                {% trans "You made it as well as the best result so far." %}
+                {% trans "Your path was as short as the best result so far." %}
             </h4>
         </div>
     {% elif result.path_length < best %}
@@ -30,7 +30,7 @@
             <h4 class="text-center">
                 {% url "start_page" problem.id as restart_url %}
                 {% blocktrans with path_length=result.path_length %}
-                    You took {{ path_length }} steps. Dare to <a href="{{ restart_url }}">improve your score?</a>
+                    You took {{ path_length }} steps. Dare to <a href="{{ restart_url }}">improve your score</a>
                     and beat the record?
                 {% endblocktrans %}
             </h4>

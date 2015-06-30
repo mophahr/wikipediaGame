@@ -1,26 +1,16 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
-    <h1 class="text-center">{% trans "Small World Game" %}</h1>
+    <h1 class="text-center">{% trans "Small-World Wikigame" %}</h1>
     <p>
-        {% trans "You start on a given <strong>start person</strong> (e.g. Albert Einstein), and your objective is to reach a <strong>target person</strong> (e.g. Michael Jackson)."%}
+        {% trans "You start on a given <strong>start person</strong> (e.g. Albert Einstein), and your goal is to reach the <strong>target person</strong> (e.g. Michael Jackson)."%}
     </p>
     <p>
-        {% trans "For each person, the game gives you all the links that that person's Wikipedia article contains that link to other articles about persons." %}
-        {% trans "You jump to other persons by <strong>following links</strong>, just like navigating on the internet." %}
+	{% trans "For each person, the game gives you all the links that that person's Wikipedia article contains that link to other articles about persons." %}<br>
+        {% trans "You jump to other persons by <strong>following links</strong>, just like when you're navigating the internet." %}
     </p>
-    <p>
-        {% trans "The game ends when you reach the target person, and your score is them compared against all others players:" %}
-    </p>
-    <h4 class="text-center">{% trans "The player with the shortest path (least number of clicks) wins" %}</h4>
-    <p>
-        {% trans "We selected different challenges from which you can start from:" %}
-    </p>
-    <p>
-        {% trans "In parentheses it shows the minimum, the everage and the maximum path length so far: (min; avg; max)." %}
-        {% trans "Can you beat the minimum?" %}
-    </p>
-    <h4> {% trans "Beginner problems:" %}</h4>
+    <h4 class="text-center">{% trans "Can you find the shortest connection between the two persons?" %}</h4>
+    <h5> {% trans "Beginner examples:" %}</h5>
     <ul>
         {% for problem in easy_problems %}
         <li>
@@ -29,7 +19,7 @@
         </li>
         {% endfor %}
     </ul>
-    <h4> {% trans "Normal difficulty:" %}</h4>
+    <h5> {% trans "Normal challenges:" %}</h5>
     <ul>
         {% for problem in normal_problems %}
         <li>
@@ -38,7 +28,6 @@
         </li>
         {% endfor %}
     </ul>
-    <h4> {% trans "Very challenging:" %}</h4>
     <ul>
         {% for problem in hard_problems %}
         <li>
@@ -47,7 +36,4 @@
         </li>
         {% endfor %}
     </ul>
-    <p>
-        {% trans "<strong>Do you have ideas for new challenges or general comments?</strong> Then contact us: game@complexidade.org or <a href=http://www.twitter.com/SmallWorldGame> @SmallWorldGame </a>"%}
-    </p>
 {% endblock %}

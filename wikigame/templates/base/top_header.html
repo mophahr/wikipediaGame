@@ -5,10 +5,6 @@
             <li><a href="{% url "home" %}">{% trans "Restart" %}</a></li>
             <li class="divider-vertical"></li>
         </ul>
-        <ul class="nav">
-            <li><a href="{% url "about" %}">{% trans "About This Project" %}</a></li>
-            <li class="divider-vertical"></li>
-        </ul>
         <div class='container-fluid'>
             <form action="{% url 'set_language' %}" method="post" class="navbar-form pull-right" role="form">
                 <div class="form-group">

@@ -68,7 +68,7 @@ DATABASES = {
 LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = (
-  ('de', _('German')),
+  ('de', _('Deutsch')),
   ('en', _('English')),
 )
 

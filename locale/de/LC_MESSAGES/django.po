@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-29 15:55+0200\n"
+"POT-Creation-Date: 2015-06-30 12:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wikigame/settings.py:71
-msgid "German"
+msgid "Deutsch"
 msgstr ""
 
 #: wikigame/settings.py:72
@@ -153,16 +153,16 @@ msgstr ""
 #: wikigame/templates/article.html:4
 #, python-format
 msgid "You are in <em>%(article_name)s</em>"
-msgstr "Sie sind im Artikel <em>%(article_name)s</em>"
+msgstr "Momentane Person: <em>%(article_name)s</em>"
 
 #: wikigame/templates/article.html:5
-#, python-format
-msgid "Objective: <em>%(end)s</em>"
-msgstr "Ziel:  <em>%(end)s</em>"
+#, fuzzy, python-format
+msgid "Target person: <em>%(end)s</em>"
+msgstr "Zielperson:  <em>%(end)s</em>"
 
 #: wikigame/templates/article.html:8
 msgid "Your path so far:"
-msgstr "Bisheriger Pfad"
+msgstr "Bisheriger Pfad:"
 
 #: wikigame/templates/article.html:16 wikigame/templates/histogram.html:31
 msgid "Path Length"
@@ -173,18 +173,19 @@ msgid "Links to other articles"
 msgstr "Links zu anderen Artikeln"
 
 #: wikigame/templates/base.html:6 wikigame/templates/home.html:4
-msgid "Small World Game"
-msgstr "Small-World-Spiel"
+#, fuzzy
+msgid "Small-World Wikigame"
+msgstr ""
+
+#: wikigame/templates/base/footer.html:5
+msgid "About This Project"
+msgstr "Über dieses Projekt"
 
 #: wikigame/templates/base/top_header.html:5
 msgid "Restart"
 msgstr "Neustart"
 
-#: wikigame/templates/base/top_header.html:9
-msgid "About This Project"
-msgstr "Über dieses Projekt"
-
-#: wikigame/templates/base/top_header.html:25
+#: wikigame/templates/base/top_header.html:21
 msgid "Change language"
 msgstr "Sprache ändern"
 
@@ -193,8 +194,8 @@ msgid "Congratulations"
 msgstr "Gratulation"
 
 #: wikigame/templates/end.html:7
-msgid "You've solved the problem!"
-msgstr "Sie haben die Aufgabe gelöst!"
+msgid "You've reached the target person!"
+msgstr "Du hast die Zielperson erreicht!"
 
 #: wikigame/templates/end.html:10
 #, python-format
@@ -206,14 +207,15 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"            Sie haben <strong>%(path_lenght)s</strong> Schritte gebraucht,\n"
+"            Du hast <strong>%(path_lenght)s</strong> Schritte gebraucht,\n"
 "            um von <strong>%(starting_article)s</strong>\n"
 "            zu <strong>%(ending_article)s</strong> zu gelangen.\n"
 "        "
 
 #: wikigame/templates/end.html:19
-msgid "You made it as well as the best result so far."
-msgstr "Sie haben leider keinen neuen Rekord aufgestellt."
+#, fuzzy
+msgid "Your path was as short as the best result so far."
+msgstr "Du hast leider keinen neuen Rekord aufgestellt."
 
 #: wikigame/templates/end.html:25
 #, python-format
@@ -221,21 +223,20 @@ msgid ""
 "Congratulations, you have <strong>set a new record</strong> of "
 "%(path_length)s steps!"
 msgstr ""
-"Gratulation! Sie haben mit %(path_length)s Schritten einen "
+"Gratulation! Du hast mit %(path_length)s Schritten einen "
 "neuen<strong>Rekord</strong> aufgestellt."
 
 #: wikigame/templates/end.html:32
-#, python-format
 msgid ""
 "\n"
 "                    You took %(path_length)s steps. Dare to <a href="
-"\"%(restart_url)s\">improve your score?</a>\n"
+"\"%(restart_url)s\">improve your score</a>\n"
 "                    and beat the record?\n"
 "                "
 msgstr ""
 "\n"
-"                    Sie haben %(path_length)s Schritte "
-"gebraucht.                    Denken Sie, Sie können Ihr <a href="
+"                    Du hast %(path_length)s Schritte "
+"gebraucht.                    Denkst Du, Du kannst Dein <a href="
 "\"%(restart_url)s\">Resultat verbessern</a>\n"
 "                    und den bisherigen Rekord einstellen?\n"
 "                "
@@ -258,7 +259,7 @@ msgstr "Schritte"
 
 #: wikigame/templates/end.html:49
 msgid "<<------ your result"
-msgstr "<<------ Ihr Ergebnis"
+msgstr "<<------ Dein Ergebnis"
 
 #: wikigame/templates/histogram.html:26
 msgid "results"
@@ -279,12 +280,11 @@ msgstr "Anzahl an Ergebnissen"
 #: wikigame/templates/home.html:6
 msgid ""
 "You start on a given <strong>start person</strong> (e.g. Albert Einstein), "
-"and your objective is to reach a <strong>target person</strong> (e.g. "
-"Michael Jackson)."
+"and your goal is to reach the <strong>target person</strong> (e.g. Michael "
+"Jackson)."
 msgstr ""
 "Du beginnst mit einer gegebenen <strong>Startperson</strong> (z.B. Albert "
-"Einstein)und sollst versuchen, in möglichst wenig Schritten, d.h. Klicks auf "
-"Links auf Personen aus dem jeweiligen Artikel, eine <strong>Zielperson</"
+"Einstein)und sollst versuchen, eine <strong>Zielperson</"
 "strong> (z.B. Michael Jackson) zu erreichen."
 
 #: wikigame/templates/home.html:9
@@ -299,65 +299,27 @@ msgstr ""
 #: wikigame/templates/home.html:10
 msgid ""
 "You jump to other persons by <strong>following links</strong>, just like "
-"navigating on the internet."
+"when you're navigating the internet."
 msgstr ""
 "Du kannst zu anderen Personen gelangen, indem Du den angezeigten Links "
 "folgst; genauso, wie wenn Du im Internet navigieren würdest."
 
+#: wikigame/templates/home.html:12
+msgid "Can you find the shortest connection between the two persons?"
+msgstr "Kannst Du die kürzeste Verbindung zwischen den beiden Personen finden?"
+
 #: wikigame/templates/home.html:13
-msgid ""
-"The game ends when you reach the target person, and your score is them "
-"compared against all others players:"
-msgstr ""
-"Das Spiel endet, wenn Du die Zielperson erreichst. Die Länge des von Dir "
-"gewählten Pfades wird dann mit den Ergebnissen bisheriger Spieler verglichen."
-
-#: wikigame/templates/home.html:15
-msgid "The player with the shortest path (least number of clicks) wins"
-msgstr "Der Spieler mit dem kürzesten Pfad gewinnt."
-
-#: wikigame/templates/home.html:17
-msgid "We selected different challenges from which you can start from:"
-msgstr "Du kannst jetzt eine der folgenden Aufgaben auswählen:"
-
-#: wikigame/templates/home.html:20
-msgid ""
-"In parentheses it shows the minimum, the everage and the maximum path length "
-"so far: (min; avg; max)."
-msgstr ""
-"In Klammern werden die minimale, durchschnittliche, und maximale bisher "
-"erreichte Pfadlänge angezeigt: (Min.; Durchsch.; Max.)"
-
-#: wikigame/templates/home.html:21
-msgid "Can you beat the minimum?"
-msgstr "Schaffst Du es schneller als das Minimum?"
-
-#: wikigame/templates/home.html:23
-msgid "Beginner problems:"
+msgid "Beginner examples:"
 msgstr "Zum Einstieg:"
 
-#: wikigame/templates/home.html:27 wikigame/templates/home.html.py:36
-#: wikigame/templates/home.html:45
+#: wikigame/templates/home.html:17 wikigame/templates/home.html.py:26
+#: wikigame/templates/home.html:34
 msgid "to"
 msgstr "zu"
 
-#: wikigame/templates/home.html:32
-msgid "Normal difficulty:"
-msgstr "Normaler Schwierigkeitsgrad:"
-
-#: wikigame/templates/home.html:41
-msgid "Very challenging:"
+#: wikigame/templates/home.html:22
+msgid "Normal challenges:"
 msgstr "Herausforderungen:"
-
-#: wikigame/templates/home.html:51
-msgid ""
-"<strong>Do you have ideas for new challenges or general comments?</strong> "
-"Then contact us: game@complexidade.org or <a href=http://www.twitter.com/"
-"SmallWorldGame> @SmallWorldGame </a>"
-msgstr ""
-"<strong>Du hast Vorschläge für weitere Challenges oder allgemeine Kommentare?"
-"</strong> Dann kontaktier uns unter game@complexidade.org oder <a "
-"href=http://www.twitter.com/SmallWorldGame> @SmallWorldGame </a>!"
 
 #: wikigame/urls.py:9
 msgid "article"
@@ -373,14 +335,14 @@ msgstr ""
 
 #: wikigame/views.py:58
 msgid "You were redirected to main page: you must start from it."
-msgstr "Sie wurden auf die Startseite weitergeleitet."
+msgstr "Du wurdest auf die Startseite weitergeleitet."
 
 #: wikigame/views.py:69
 msgid ""
 "You tried an article without links :/. we gave you the chance to try other "
 "article."
 msgstr ""
-"Sie haben eine Seite ohne Links gefunden :/. Wählen Sie bitte eine andere "
+"Du hast eine Seite ohne Links gefunden :/. Wähle bitte eine andere "
 "aus der Liste."
 
 #: wikigame/views.py:78
@@ -388,17 +350,55 @@ msgid ""
 "You tried an article that is not connected to your path: we have redirected "
 "you to your path."
 msgstr ""
-"Sie haben einen Artikel aufgerufen, der nicht verlinkt war, und wurden "
+"Du hast einen Artikel aufgerufen, der nicht verlinkt war, und wurdest "
 "umgeleitet."
 
 #: wikigame/views.py:114
 msgid ""
 "This problem doesn't seem to exist. we have redirected you to the main page."
 msgstr ""
-"Sie haben eine Aufgabe gewählt, die nicht existiert. Sie können hier eine "
+"Du hast eine Aufgabe gewählt, die nicht existiert. Du kannst hier eine "
 "existierende auswählen."
 
 #: wikigame/views.py:178
 msgid "histogram of path length"
 msgstr "Histogramm der Pfadlängen"
 
+#~ msgid "Small World Game"
+#~ msgstr "Small-World-Spiel"
+
+#~ msgid ""
+#~ "The game ends when you reach the target person, and your score is them "
+#~ "compared against all others players:"
+#~ msgstr ""
+#~ "Das Spiel endet, wenn Du die Zielperson erreichst. Die Länge des von Dir "
+#~ "gewählten Pfades wird dann mit den Ergebnissen bisheriger Spieler "
+#~ "verglichen."
+
+#~ msgid "The player with the shortest path (least number of clicks) wins"
+#~ msgstr "Der Spieler mit dem kürzesten Pfad gewinnt."
+
+#~ msgid "We selected different challenges from which you can start from:"
+#~ msgstr "Du kannst jetzt eine der folgenden Aufgaben auswählen:"
+
+#~ msgid ""
+#~ "In parentheses it shows the minimum, the everage and the maximum path "
+#~ "length so far: (min; avg; max)."
+#~ msgstr ""
+#~ "In Klammern werden die minimale, durchschnittliche, und maximale bisher "
+#~ "erreichte Pfadlänge angezeigt: (Min.; Durchsch.; Max.)"
+
+#~ msgid "Can you beat the minimum?"
+#~ msgstr "Schaffst Du es schneller als das Minimum?"
+
+#~ msgid "Normal difficulty:"
+#~ msgstr "Normaler Schwierigkeitsgrad:"
+
+#~ msgid ""
+#~ "<strong>Do you have ideas for new challenges or general comments?</"
+#~ "strong> Then contact us: game@complexidade.org or <a href=http://www."
+#~ "twitter.com/SmallWorldGame> @SmallWorldGame </a>"
+#~ msgstr ""
+#~ "<strong>Du hast Vorschläge für weitere Challenges oder allgemeine "
+#~ "Kommentare?</strong> Dann kontaktier uns unter game@complexidade.org oder "
+#~ "<a href=http://www.twitter.com/SmallWorldGame> @SmallWorldGame </a>!"
