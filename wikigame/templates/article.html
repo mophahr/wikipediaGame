@@ -14,37 +14,41 @@
         </p>
     {% endif %}
     <h3 class="text-center">{% trans "Path Length" %}: {{ path|length|add:"-1" }}</h3>
-    <p>
-        {% trans "Links to other articles" %}:
-    </p>
+    <p>{% trans "Links to other articles" %}:</p>
     <div class="container">
         <div class="row">
-            <div class="span4">
-                <ul>
+            <div class="col-md-4">
+                <table class="table table-condensed">
                     {% for link in links1 %}
-                        <li>
-                            <a href="{% url "article" link %}">{{ link }}</a>
-                        </li>
+                        {% if problem.end == link %}
+                            <tr class="success"><td><a href="{% url "article" link %}"><strong>{{ link }}</strong></a></td></tr>
+                        {% else %}
+                            <tr><td><a href="{% url "article" link %}">{{ link }}</a></td></tr>
+                        {% endif %}
                     {% endfor %}
-                </ul>
+                </table>
             </div>
-            <div class="span4">
-                <ul>
+            <div class="col-md-4">
+                <table class="table table-condensed">
                     {% for link in links2 %}
-                        <li>
-                            <a href="{% url "article" link %}">{{ link }}</a>
-                        </li>
+                        {% if problem.end == link %}
+                            <tr class="success"><td><a href="{% url "article" link %}"><strong>{{ link }}</strong></a></td></tr>
+                        {% else %}
+                            <tr><td><a href="{% url "article" link %}">{{ link }}</a></td></tr>
+                        {% endif %}
                     {% endfor %}
-                </ul>
+                </table>
             </div>
-            <div class="span4">
-                <ul>
+            <div class="col-md-4">
+                <table class="table table-condensed">
                     {% for link in links3 %}
-                        <li>
-                            <a href="{% url "article" link %}">{{ link }}</a>
-                        </li>
+                        {% if problem.end == link %}
+                            <tr class="success"><td><a href="{% url "article" link %}"><strong>{{ link }}</strong></a></td></tr>
+                        {% else %}
+                            <tr><td><a href="{% url "article" link %}">{{ link }}</a></td></tr>
+                        {% endif %}
                     {% endfor %}
-                </ul>
+                </table>
             </div>
         </div>
     </div>
