@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-30 12:23+0200\n"
+"POT-Creation-Date: 2015-06-30 15:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -173,7 +173,6 @@ msgid "Links to other articles"
 msgstr "Links zu anderen Artikeln"
 
 #: wikigame/templates/base.html:6 wikigame/templates/home.html:4
-#, fuzzy
 msgid "Small-World Wikigame"
 msgstr ""
 
@@ -227,6 +226,7 @@ msgstr ""
 "neuen<strong>Rekord</strong> aufgestellt."
 
 #: wikigame/templates/end.html:32
+#, python-format
 msgid ""
 "\n"
 "                    You took %(path_length)s steps. Dare to <a href="
@@ -284,8 +284,8 @@ msgid ""
 "Jackson)."
 msgstr ""
 "Du beginnst mit einer gegebenen <strong>Startperson</strong> (z.B. Albert "
-"Einstein)und sollst versuchen, eine <strong>Zielperson</"
-"strong> (z.B. Michael Jackson) zu erreichen."
+"Einstein)und sollst versuchen, eine <strong>Zielperson</strong> (z.B. "
+"Michael Jackson) zu erreichen."
 
 #: wikigame/templates/home.html:9
 msgid ""
@@ -313,12 +313,14 @@ msgid "Beginner examples:"
 msgstr "Zum Einstieg:"
 
 #: wikigame/templates/home.html:17 wikigame/templates/home.html.py:26
-#: wikigame/templates/home.html:34
+#: wikigame/templates/home.html:32 wikigame/templates/home.html.py:40
+#: wikigame/templates/home.html:48 wikigame/templates/home.html.py:56
+#: wikigame/templates/home.html:64
 msgid "to"
 msgstr "zu"
 
 #: wikigame/templates/home.html:22
-msgid "Normal challenges:"
+msgid "Challenges:"
 msgstr "Herausforderungen:"
 
 #: wikigame/urls.py:9
@@ -333,19 +335,19 @@ msgstr ""
 msgid "end"
 msgstr ""
 
-#: wikigame/views.py:58
+#: wikigame/views.py:72
 msgid "You were redirected to main page: you must start from it."
 msgstr "Du wurdest auf die Startseite weitergeleitet."
 
-#: wikigame/views.py:69
+#: wikigame/views.py:83
 msgid ""
 "You tried an article without links :/. we gave you the chance to try other "
 "article."
 msgstr ""
-"Du hast eine Seite ohne Links gefunden :/. Wähle bitte eine andere "
-"aus der Liste."
+"Du hast eine Seite ohne Links gefunden :/. Wähle bitte eine andere aus der "
+"Liste."
 
-#: wikigame/views.py:78
+#: wikigame/views.py:92
 msgid ""
 "You tried an article that is not connected to your path: we have redirected "
 "you to your path."
@@ -353,14 +355,14 @@ msgstr ""
 "Du hast einen Artikel aufgerufen, der nicht verlinkt war, und wurdest "
 "umgeleitet."
 
-#: wikigame/views.py:114
+#: wikigame/views.py:128
 msgid ""
 "This problem doesn't seem to exist. we have redirected you to the main page."
 msgstr ""
 "Du hast eine Aufgabe gewählt, die nicht existiert. Du kannst hier eine "
 "existierende auswählen."
 
-#: wikigame/views.py:178
+#: wikigame/views.py:192
 msgid "histogram of path length"
 msgstr "Histogramm der Pfadlängen"
 
