@@ -1,26 +1,35 @@
 {% load i18n %}
-<div class="navbar">
-    <div class="navbar-inner">
-        <ul class="nav">
-            <li><a href="{% url "home" %}">{% trans "Restart" %}</a></li>
-            <li class="divider-vertical"></li>
-        </ul>
-        <div class='container-fluid'>
-            <form action="{% url 'set_language' %}" method="post" class="navbar-form pull-right" role="form">
-                <div class="form-group">
-                    {% csrf_token %}
-                    <input name="next" type="hidden" value="{{ redirect_to }}" class="form-control"/>
-                    <select name="language" class="form-control">
-                        {% get_language_info_list for LANGUAGES as languages %}
-                        {% for language in languages %}
-                            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
-                                {{ language.name_local }} ({{ language.code }})
-                            </option>
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                <span class="sr-only">{% trans "Toggle navigation"%}</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url "home" %}">{% trans "Restart" %}</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        {% trans "Language" %}<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% for lang in LANGUAGES %}
+                            <li>
+                                <form name="setLang{{ lang.1}}" action="/i18n/setlang/" method="POST">{% csrf_token %}
+                                    <input name="next" type="hidden" value="" />
+                                    <input name="language" type="hidden" value="{{ lang.0 }}" />
+                                    <a class="btn{% if lang.0 == LANGUAGE_CODE %} disabled{% endif %}" href="#" onclick="document.setLang{{ lang.1 }}.submit();return false;">{{ lang.1 }}</a>
+                                </form>
+                            </li>
                         {% endfor %}
-                    </select>
-                    <input type="submit" value="{% trans "Change language" %}" class="btn"/>
-                </div>
-            </form>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
