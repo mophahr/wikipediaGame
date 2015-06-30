@@ -31,21 +31,35 @@ def get_links(article_name):
 
 
 def home(request):
-    flush_game_session(request.session)
-    create_problems()
-
-    problems = Problem.objects.annotate(count=Count('result'),
-                                        min=Min('result__path_length'),
-                                        avg=Avg('result__path_length'),
-                                        max=Max('result__path_length'))
-
-    easy_problems = problems.filter(id__in=(1,2,3))
-    normal_problems = problems.filter(id__in=(4,5,6,7,8))
-    hard_problems = problems.filter(id__in=(9,10))
-
-    return render(request, 'home.html', {'easy_problems': easy_problems,
-                                         'normal_problems': normal_problems,
-                                         'hard_problems': hard_problems})
+	flush_game_session(request.session)
+	create_problems()
+	
+	problems = Problem.objects.annotate(count=Count('result'),
+	                                    min=Min('result__path_length'),
+	                                    avg=Avg('result__path_length'),
+	                                    max=Max('result__path_length'))
+	
+	easy_problems = problems.filter(id__in=(1,2,3))
+	normal_problems = problems.filter(id__in=(4,5,6,7,8))
+	hard_problems = problems.filter(id__in=(9,10))
+	
+	dresden_problems = problems.filter(id__in=(8,9,10,19))
+	sports_problems = problems.filter(id__in=(14,5,24,25))
+	science_problems = problems.filter(id__in=(4,11,22))
+	entertainment_problems = problems.filter(id__in=(21,17,18,20,23))
+	arts_problems = problems.filter(id__in=(7,15,16,26))
+	history_problems = problems.filter(id__in=(12,13))
+	
+	
+	return render(request, 'home.html', {'easy_problems'		: easy_problems,
+										'normal_problems'		: normal_problems,
+	                                    'hard_problems'			: hard_problems,
+										'dresden_problems'		: dresden_problems,		
+										'sports_problems'		: sports_problems,		
+										'science_problems'		: science_problems,		
+										'entertainment_problems': entertainment_problems,
+										'arts_problems'			: arts_problems,	
+										'history_problems'		: history_problems})
 
 
 def about(request):
