@@ -36,7 +36,7 @@ def create_problems():
 	#sports
 	Problem.objects.get_or_create(id=14, start='Silvia Neid', end='Marie Curie')
 	Problem.objects.get_or_create(id=5, start='Kevin Großkreutz', end='Angela Merkel')
-	Problem.objects.get_or_create(id=24, start='Lionel Messi', end='Angela Merkel')
+	Problem.objects.get_or_create(id=28, start='Lionel Messi', end='Elton John')
 	Problem.objects.get_or_create(id=25, start='Venus Williams', end='Winston Churchill')
 	
 	#science
@@ -48,8 +48,6 @@ def create_problems():
 	Problem.objects.get_or_create(id=21, start='Tilda Swinton', end='Nicolas Cage')
 	Problem.objects.get_or_create(id=10, start='Donald Duck', end='Albert Camus')
 	Problem.objects.get_or_create(id=17, start='Udo Jürgens', end='Alexis Tsipras')
-	Problem.objects.get_or_create(id=18, start='Conchita Wurst', end='Wladimir Wladimirowitsch Putin')
-	Problem.objects.get_or_create(id=27, start='Wladimir Putin', end='Conchita Wurst')
 	Problem.objects.get_or_create(id=20, start='Ridley Scott', end='David Hasselhoff')
 	Problem.objects.get_or_create(id=23, start='Miley Cyrus', end='Allen Ginsberg')
 	
@@ -67,4 +65,7 @@ def create_problems():
 	#ignore:
 	"""
 	Problem.objects.get_or_create(id=6, start='Angela Merkel', end='Kevin Großkreutz')
+	Problem.objects.get_or_create(id=18, start='Conchita Wurst', end='Wladimir Wladimirowitsch Putin')
+	Problem.objects.get_or_create(id=27, start='Wladimir Putin', end='Conchita Wurst')
+	Problem.objects.get_or_create(id=24, start='Lionel Messi', end='Angela Merkel')
 	"""
