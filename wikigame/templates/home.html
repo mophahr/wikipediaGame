@@ -17,44 +17,25 @@
     </div>
         <div class="row">
             <div class="col-md-8">
-                <h4> {% trans "Warm up" %}</h4>
+                <h4>{% trans "Warm up" %}</h4>
                 <table class="table table-condensed">
                     {% include "table_header.html" %}
-                    {% for problem in easy_problems %}
-                        <tr>
-                            <td><a class="btn btn-success" href="{% url "start_page" problem.id %}">Start</a></td>
-                            <td>{{ problem.start }}</td>
-                            <td>{{ problem.end }}</td>
-                            <td>{{ problem.min|floatformat:0 }}</td>
-                            <td>{{ problem.avg|floatformat:1 }}</td>
-                            <td>{{ problem.count }}</td>
-                        </tr>
-                    {% endfor %}
+                    {% include "problems_table.html" with problems=easy_problems %}
                 </table>
                 <h4> {% trans "Challenges" %}</h4>
                 <table class="table table-condensed">
                     {% include "table_header.html" %}
-                    {% for problem in normal_problems %}
-                        <tr>
-                            <td><a class="btn btn-success" href="{% url "start_page" problem.id %}">Start</a></td>
-                            <td>{{ problem.start }}</td>
-                            <td>{{ problem.end }}</td>
-                            <td>{{ problem.min|floatformat:0 }}</td>
-                            <td>{{ problem.avg|floatformat:1 }}</td>
-                            <td>{{ problem.count }}</td>
-                        </tr>
-                    {% endfor %}
+                    {% include "problems_table.html" with problems=dresden_problems %}
                     <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                    {% for problem in hard_problems %}
-                        <tr>
-                            <td><a class="btn btn-success" href="{% url "start_page" problem.id %}">Start</a></td>
-                            <td>{{ problem.start }}</td>
-                            <td>{{ problem.end }}</td>
-                            <td>{{ problem.min|floatformat:1 }}</td>
-                            <td>{{ problem.avg|floatformat:1 }}</td>
-                            <td>{{ problem.count }}</td>
-                        </tr>
-                    {% endfor %}
+                    {% include "problems_table.html" with problems=history_problems %}
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    {% include "problems_table.html" with problems=sports_problems %}
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    {% include "problems_table.html" with problems=science_problems %}
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    {% include "problems_table.html" with problems=entertainment_problems %}
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    {% include "problems_table.html" with problems=arts_problems %}
                 </table>
             </div>
             <div class="col-md-1"></div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-30 17:43+0200\n"
+"POT-Creation-Date: 2015-06-30 18:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -308,11 +308,11 @@ msgstr "<strong>Folge den Links</strong> um zu anderen Personen zu gelangen."
 msgid "Warm up"
 msgstr "Zum Einstieg"
 
-#: wikigame/templates/home.html:34
+#: wikigame/templates/home.html:25
 msgid "Challenges"
 msgstr "Herausforderungen"
 
-#: wikigame/templates/home.html:62
+#: wikigame/templates/home.html:43
 msgid "Twitter"
 msgstr "Twitter"
 
@@ -368,16 +368,13 @@ msgstr ""
 "Du hast einen Artikel aufgerufen, der nicht verlinkt war, und wurdest "
 "umgeleitet."
 
-#: wikigame/views.py:126
+#: wikigame/views.py:125
 msgid ""
 "This problem doesn't seem to exist. we have redirected you to the main page."
 msgstr ""
 "Du hast eine Aufgabe gewählt, die nicht existiert. Du kannst hier eine "
 "existierende auswählen."
 
-#: wikigame/views.py:190
+#: wikigame/views.py:189
 msgid "histogram of path length"
 msgstr "Histogramm der Pfadlängen"
-
-#~ msgid "Language"
-#~ msgstr "Sprache"

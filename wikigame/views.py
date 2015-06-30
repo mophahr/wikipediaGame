@@ -32,7 +32,6 @@ def get_links(article_name):
 
 def home(request):
     flush_game_session(request.session)
-    create_problems()
 
     problems = Problem.objects.annotate(count=Count('result'),
                                         min=Min('result__path_length'),
@@ -61,6 +60,7 @@ def home(request):
 
 
 def about(request):
+    create_problems()  # visit about to create the problems (HACK!!)
     return render(request, 'about.html')
 
 
@@ -119,7 +119,6 @@ def article(request, article):
 
 
 def start_page(request, problem_id):
-    create_problems()
     try:
         problem = Problem.objects.get(id=problem_id)
     except Problem.DoesNotExist:
