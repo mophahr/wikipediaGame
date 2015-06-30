@@ -46,7 +46,7 @@ def home(request):
 	dresden_problems = problems.filter(id__in=(8,9,10,19))
 	sports_problems = problems.filter(id__in=(14,5,24,25))
 	science_problems = problems.filter(id__in=(4,11,22))
-	entertainment_problems = problems.filter(id__in=(21,17,18,20,23))
+	entertainment_problems = problems.filter(id__in=(21,17,27,20,23))
 	arts_problems = problems.filter(id__in=(7,15,16,26))
 	history_problems = problems.filter(id__in=(12,13))
 	

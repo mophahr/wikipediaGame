@@ -49,10 +49,11 @@ def create_problems():
 	Problem.objects.get_or_create(id=10, start='Donald Duck', end='Albert Camus')
 	Problem.objects.get_or_create(id=17, start='Udo Jürgens', end='Alexis Tsipras')
 	Problem.objects.get_or_create(id=18, start='Conchita Wurst', end='Wladimir Wladimirowitsch Putin')
+	Problem.objects.get_or_create(id=27, start='Wladimir Putin', end='Conchita Wurst')
 	Problem.objects.get_or_create(id=20, start='Ridley Scott', end='David Hasselhoff')
 	Problem.objects.get_or_create(id=23, start='Miley Cyrus', end='Allen Ginsberg')
 	
-	#arts
+	#arts Peter Pan 
 	Problem.objects.get_or_create(id=7, start='Johann Wolfgang von Goethe', end='Arnold Schwarzenegger')
 	Problem.objects.get_or_create(id=15, start='Clara Schumann', end='Nina Hagen')
 	Problem.objects.get_or_create(id=16, start='Franz Kafka', end='Franz Beckenbauer')
