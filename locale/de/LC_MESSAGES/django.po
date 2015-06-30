@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-30 17:35+0200\n"
+"POT-Creation-Date: 2015-06-30 17:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -182,15 +182,11 @@ msgstr "Über"
 
 #: wikigame/templates/base/top_header.html:6
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Navigationsleiste"
 
 #: wikigame/templates/base/top_header.html:11
 msgid "Restart"
 msgstr "Neustart"
-
-#: wikigame/templates/base/top_header.html:18
-msgid "Language"
-msgstr "Sprache"
 
 #: wikigame/templates/end.html:5
 msgid "Congratulations"
@@ -282,7 +278,8 @@ msgstr "Anzahl an Ergebnissen"
 
 #: wikigame/templates/home.html:5
 msgid "Find the (shortest) path between two persons on wikipedia"
-msgstr "Kannst Du die (kürzeste) Verbindung zwischen den beiden Personen finden?"
+msgstr ""
+"Kannst Du die (kürzeste) Verbindung zwischen den beiden Personen finden?"
 
 #: wikigame/templates/home.html:10
 msgid ""
@@ -305,11 +302,11 @@ msgstr ""
 
 #: wikigame/templates/home.html:14
 msgid "<strong>Follow links</strong> to jump to other persons."
-msgstr ""
+msgstr "<strong>Folge den Links</strong> um zu anderen Personen zu gelangen."
 
 #: wikigame/templates/home.html:20
 msgid "Warm up"
-msgstr ""
+msgstr "Zum Einstieg"
 
 #: wikigame/templates/home.html:34
 msgid "Challenges"
@@ -329,15 +326,15 @@ msgstr "Zu"
 
 #: wikigame/templates/table_header.html:6
 msgid "Best"
-msgstr ""
+msgstr "Rekord"
 
 #: wikigame/templates/table_header.html:7
 msgid "Average"
-msgstr ""
+msgstr "Durchschnitt"
 
 #: wikigame/templates/table_header.html:8
 msgid "Successes"
-msgstr ""
+msgstr "Erfolgreich"
 
 #: wikigame/urls.py:9
 msgid "article"
@@ -381,3 +378,6 @@ msgstr ""
 #: wikigame/views.py:190
 msgid "histogram of path length"
 msgstr "Histogramm der Pfadlängen"
+
+#~ msgid "Language"
+#~ msgstr "Sprache"
