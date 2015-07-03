@@ -41,12 +41,12 @@ def home(request):
     normal_problems = problems.filter(id__in=(4,5,6,7,8))
     hard_problems = problems.filter(id__in=(9,10))
 
-    dresden_problems = problems.filter(id__in=(8,9,10,19))
+    dresden_problems = problems.filter(id__in=(8,9,19,29))
     sports_problems = problems.filter(id__in=(14,5,28,25))
-    science_problems = problems.filter(id__in=(4,11,22))
-    entertainment_problems = problems.filter(id__in=(21,17,20,23))
+    science_problems = problems.filter(id__in=(4,11,22,32,35))
+    entertainment_problems = problems.filter(id__in=(21,10,17,20,23))
     arts_problems = problems.filter(id__in=(7,15,16,26))
-    history_problems = problems.filter(id__in=(12,13))
+    history_problems = problems.filter(id__in=(12,13,30,31))
 
     return render(request, 'home.html', {'easy_problems'		: easy_problems,
                                          'normal_problems'		: normal_problems,
