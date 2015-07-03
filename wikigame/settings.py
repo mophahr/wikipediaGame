@@ -3,6 +3,9 @@ from django.utils.translation import ugettext_lazy as _
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+ADMINS = (('Jorge', 'jorgecarleitao@gmail.com'), 
+          ('Moritz', 'mophahr@googlemail.com'))
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
