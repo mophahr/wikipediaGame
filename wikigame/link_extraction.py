@@ -32,6 +32,7 @@ def get_links(start_page, wikipedia_language='de'):
                       "prop": "links",
                       "pllimit": 500,
                       "plnamespace": 0,
+                      "rawcontinue":"",
                       "titles": quote(start_page.encode("utf8"))}
         parameters.update(more_parameters)
 
