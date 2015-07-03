@@ -1,20 +1,32 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 {% block content %}
-    <h1 class="text-center">{% trans "Small-World Wikigame" %}</h1>
-    <h4 class="text-center">{% trans "Find the (shortest) path between two persons on wikipedia" %}</h4>
+    <div class="jumbotron" itemscope itemtype="http://schema.org/WebPage">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <img class="img-rounded img-responsive" src="{% static 'logo512x512.png' %}" itemprop="primaryImageOfPage"/>
+            </div>
+            <div class="col-md-8">
+                <h1>{% trans "Small-World Wikigame" %}</h1>
+                <p itemprop="description"><small>
+                    {% trans "Find the (shortest) path between two persons on wikipedia" %}
+                </small></p>
+            </div>
+        </div>
+    </div>
     <div class="container">
-    <div class="panel panel-default">
-    <div class="panel-body">
-    <p>
-        {% trans "You start on a given <strong>start person</strong> (e.g. Albert Einstein), and your goal is to reach the <strong>target person</strong> (e.g. Michael Jackson)."%}
-    </p>
-    <p>
-	{% trans "For each person, the game gives you all the links that that person's Wikipedia article contains that link to other articles about persons." %}<br>
-        {% trans "<strong>Follow links</strong> to jump to other persons." %}
-    </p>
-    </div>
-    </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>
+                    {% trans "You start on a given <strong>start person</strong> (e.g. Albert Einstein), and your goal is to reach the <strong>target person</strong> (e.g. Michael Jackson)."%}
+                </p>
+                <p>
+                    {% trans "For each person, the game gives you all the links that that person's Wikipedia article contains that link to other articles about persons." %}<br>
+                    {% trans "<strong>Follow links</strong> to jump to other persons." %}
+                </p>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-8">
                 <h4>{% trans "Warm up" %}</h4>
