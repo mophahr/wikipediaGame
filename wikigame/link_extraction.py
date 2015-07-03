@@ -112,7 +112,7 @@ def names_condition(link_name):
         return False
 
     # ignore if it contains common words
-    if any(common in term for common in ['OF ', 'THE ', '?', 'AND ']):
+    if any(common in term for common in [' OF ', ' THE ', '?', ' AND ']):
         return False
 
     # only counts if starts by name from database
