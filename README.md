@@ -1,6 +1,8 @@
 wikipediaGame
 =============
 
+http://game.complexidade.org
+
 Installation
 ------------
 
