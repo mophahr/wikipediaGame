@@ -13,6 +13,7 @@ class Result(models.Model):
     time = models.DateTimeField(auto_now=True)
     problem = models.ForeignKey('Problem')
     path_length = models.IntegerField()
+    path = models.TextField()
 
 
 def create_problems():

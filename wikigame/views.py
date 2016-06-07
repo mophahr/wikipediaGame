@@ -86,7 +86,7 @@ def article(request, article):
     if article != previous_article:
         # ensure the article is valid (this article is accessible from the previous one)
         # this avoids cheating by changing the url (principle that HTML requests are anonymous)
-        if article not in get_links(previous_article):
+        if article not in get_links(previous_article) and article != problem.start:
             messages.warning(request, _('You tried an article that is not '
                                         'connected to your path: '
                                         'we have redirected you to your path.'))
@@ -162,7 +162,8 @@ def end_page(request):
     best = Result.objects.aggregate(min=Min('path_length'))['min']
 
     result = Result.objects.create(problem=problem,
-                                   path_length=len(request.session['path']) - 1)
+                                   path_length=len(request.session['path']) - 1,
+                                   path=r"{:}".join(request.session['path']))
 
     # after the user ends, the game is restarted (so the user cannot use
     # back and finish again)
