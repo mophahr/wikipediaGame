@@ -3,7 +3,7 @@
 {% block content %}
     <h1 class="text-center">{% blocktrans with article_name=article %}You are in <em>{{ article_name }}</em>{% endblocktrans %}</h1>
     <h4 class="text-center">{% blocktrans with end=problem.end %}Target person: <em>{{ end }}</em>{% endblocktrans %}</h4>
-    <h4 class="text-center"><a class="btn btn-warning" href="{% url "article" problem.start %}">{% trans "Go to begining, " %} {{ problem.start }}</a></h4>
+    <h4 class="text-center"><a class="btn btn-warning" href="{% url "article" problem.start %}">{% trans "Jump to the start: " %} {{ problem.start }}</a></h4>
     {% if path|length > 1 %}
         <p class="text-center">
             {% trans "Your path so far:"%}
